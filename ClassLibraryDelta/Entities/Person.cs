@@ -73,10 +73,17 @@ namespace ClassLibraryDelta.Entities
 
         public Person(string lastname, string firstname, int phone)
         {
-            LastName = lastname;
-            FirstName = firstname;
-            Phone = phone;
-            ListCommand = new List<Command>();
+            if(lastname.Equals("") || firstname.Equals("") || phone < 0)
+            {
+                throw new Exception("Données manquantes (nom, prénom ou téléphone)");
+            }
+            else
+            {
+                LastName = lastname;
+                FirstName = firstname;
+                Phone = phone;
+                ListCommand = new List<Command>();
+            }
         }
 
         #endregion

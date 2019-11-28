@@ -43,16 +43,20 @@ namespace ClassLibraryDelta.Entities
         #endregion
 
         #region Constructors
-        public Command()
-        {
-
-        }
 
         public Command(Client client, Seller seller)
         {
-            Client = client;
-            Seller = seller;
-            DateCommand = DateTime.Now;
+            if(client != null && seller != null)
+            {
+                Client = client;
+                Seller = seller;
+                DateCommand = DateTime.Today;
+
+            }
+            else
+            {
+                throw new Exception("Client null ou Seller null");
+            }
         }
         #endregion
     }

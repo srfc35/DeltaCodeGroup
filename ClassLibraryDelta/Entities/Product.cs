@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +16,7 @@ namespace ClassLibraryDelta.Entities
         private string brand;
         private int size;
         private float unitPriceHT;
-        private static float vatRate = 0.20;
+        private static float vatRate = 0.20f;
         private  float discount;
         private float weight;
         private string color;
@@ -65,21 +67,18 @@ namespace ClassLibraryDelta.Entities
             set { vatRate = value; }
         }
 
-        [Required]
         public float Weight
         {
             get { return weight; }
             set { weight = value; }
         }
 
-        [Required]
         public float Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
-        [Required]
         public string  Color
         {
             get { return color; }
@@ -104,20 +103,26 @@ namespace ClassLibraryDelta.Entities
         public Product(int productID, string nameProduct, string brand, int size,
             float unitPriceHT, float vatRate, float discount, float weight, string color)
         {
-            this.productID = productID;
-            this.nameProduct = nameProduct;
-            this.brand = brand;
-            this.size = size;
-            this.unitPriceHT = unitPriceHT;
-            this.vatRate = vatRate;
-            this.discount = discount;
-            this.weight = weight;
-            this.color = color;
+            if(brand.Equals("") || unitPriceHT < 0 || size < 0)
+            {
+                throw new Exception("Données manquantes (marque, prix ou taille");
+            }
+            else
+            {
+                this.nameProduct = nameProduct;
+                this.brand = brand;
+                this.size = size;
+                this.unitPriceHT = unitPriceHT;
+                this.discount = discount;
+                this.weight = weight;
+                this.color = color;
+
+            }
            
         }    
         #endregion
 
-        #region Method
+        #region Methods
 
         public override string ToString()
         {
@@ -144,7 +149,7 @@ namespace ClassLibraryDelta.Entities
         {
             if (price > 0)
             {
-                Price = price;
+                UnitPriceHT = price;
             }
         }
 
@@ -164,7 +169,7 @@ namespace ClassLibraryDelta.Entities
             }
         }
 
-        public void UpdateBrand(string color)
+        public void UpdateColor(string color)
         {
             if (!color.Equals(""))
             {
