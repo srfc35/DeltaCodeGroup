@@ -33,6 +33,11 @@ namespace ClassLibraryDelta.Entities
         {
 
         }
+
+        public Client(string lastname, string firstname, int phone) : base(lastname, firstname, phone)
+        {
+
+        }
         #endregion
     }
 }

@@ -12,19 +12,25 @@ namespace ClassLibraryDelta.Entities
     {
         #region Attributes
        
-        
         private float sellerAccount;
-
+        private string login;
+        private string password;
 
         #endregion
-        #region Properties
 
+        #region Properties
          
         [Required]
         public float SellerAccount
         {
             get { return sellerAccount; }
             set { sellerAccount = value; }
+        }
+
+        public string Login
+        {
+            get { return login; }
+            set { login = value; }
         }
 
         #endregion
@@ -35,9 +41,10 @@ namespace ClassLibraryDelta.Entities
         {
                 
         }
-        public Seller(string lastname, string firstname, int phone) : base(lastname, firstname, phone)
+        public Seller(string lastname, string firstname, int phone, string login, string password) : base(lastname, firstname, phone)
         {
-
+            Login = login;
+            this.password = password;
         }
         #endregion
     }

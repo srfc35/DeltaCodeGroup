@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClassLibraryDelta.Entities
 {
     public class Tablet:Product
     {
         #region Attribut
+        [Required]
         private float screenSize;
+        #endregion
 
-      
 
+        #region Properties
         public float ScreenSize
         {
             get { return screenSize; }
             set { screenSize = value; }
         }
-
-
-
         #endregion
         #region Constructor
         public Tablet(float screenSize, int productID, string nameProduct, string brand, int size,
@@ -37,6 +37,16 @@ namespace ClassLibraryDelta.Entities
 
         #endregion
 
+
+        #region Methods
+        public void UpdateRScreenSize(float screenSize)
+        {
+            if (screenSize >0)
+            {
+                ScreenSize = screenSize;
+            }
+        }
+        #endregion
 
     }
 }

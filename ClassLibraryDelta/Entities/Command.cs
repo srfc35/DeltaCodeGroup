@@ -16,6 +16,7 @@ namespace ClassLibraryDelta.Entities
         #endregion
 
         #region Properties
+
         public int CommandID
         {
             get { return commandId; }
@@ -45,6 +46,13 @@ namespace ClassLibraryDelta.Entities
         public Command()
         {
 
+        }
+
+        public Command(Client client, Seller seller)
+        {
+            Client = client;
+            Seller = seller;
+            DateCommand = DateTime.Now;
         }
         #endregion
     }

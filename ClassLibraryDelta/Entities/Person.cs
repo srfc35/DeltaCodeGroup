@@ -11,16 +11,29 @@ namespace ClassLibraryDelta.Entities
     public abstract class Person
     {
         #region Attributes
-        private int id;
+        
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        private int id;
+
+        [Required]
+        private string lastname;
+
+        [Required]
+        private int phone;
+
+        [Required]
+        private List<Command> listcommand;
+
+        #endregion
+
+        #region Properties
+
         public int Id
         {
             get { return id; }
             set { id = value; }
-        }
-
-        private string lastname;
+        }        
 
         public string LastName
         {
@@ -28,6 +41,7 @@ namespace ClassLibraryDelta.Entities
             set { lastname = value; }
         }
 
+        [Required]
         private string firstname;
 
         public string FirstName
@@ -36,15 +50,11 @@ namespace ClassLibraryDelta.Entities
             set { firstname = value; }
         }
 
-        private int phone;
-
         public int Phone
         {
             get { return phone; }
             set { phone = value; }
-        }
-
-        private List<Command> listcommand;
+        }        
 
         public List<Command> ListCommand
         {
@@ -60,12 +70,43 @@ namespace ClassLibraryDelta.Entities
         {
 
         }
+
         public Person(string lastname, string firstname, int phone)
         {
             LastName = lastname;
             FirstName = firstname;
             Phone = phone;
             ListCommand = new List<Command>();
+        }
+
+        #endregion
+
+        #region Methods
+
+        public void UpdateLastName(string lastname)
+        {
+            if (!lastname.Equals(""))
+            {
+                LastName = lastname;
+            }
+        }
+
+        public void UpdateFirstName(string firstname)
+        {
+            if (!firstname.Equals(""))
+            {
+                FirstName = firstname;
+            }
+        }
+
+        public void UpdatePhone(int phone)
+        {
+            Phone = phone;
+        }
+
+        public void AddCommand(Command command)
+        {
+            ListCommand.Add(command);
         }
         #endregion
     }

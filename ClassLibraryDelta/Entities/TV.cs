@@ -3,22 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClassLibraryDelta.Entities
 {
     public class TV : Product
     {
         #region Attribut
+        [Required]
         private float resolution;
+        #endregion
 
-       
-
-        public  float Resolution
+        #region Properties
+        public float Resolution
         {
             get { return resolution; }
             set { resolution = value; }
         }
-
         #endregion
         #region Constructor
 
@@ -40,6 +41,14 @@ namespace ClassLibraryDelta.Entities
         public override string ToString()
         {
             return Newtonsoft.Json.JsonConvert.SerializeObject(this);
+        }
+
+        public void UpdateResolution(float resolution)
+        {
+            if (resolution > 0)
+            {
+                Resolution = resolution;
+            }
         }
         #endregion
     }
