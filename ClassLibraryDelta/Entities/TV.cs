@@ -28,7 +28,14 @@ namespace ClassLibraryDelta.Entities
             float unitPriceHT, float vatRate, float discount, float weight, string color, float resolution) : base(productID, nameProduct, brand, size,
                           unitPriceHT, vatRate, discount, weight, color)
         {
-            this.resolution = resolution;
+            if (resolution > 0)
+            {
+                this.resolution = resolution;
+            }
+            else
+            {
+                throw new Exception("Résolution non valide");
+            }
         }
 
         public TV()
@@ -48,6 +55,10 @@ namespace ClassLibraryDelta.Entities
             if (resolution > 0)
             {
                 Resolution = resolution;
+            }
+            else
+            {
+                throw new Exception("Résolution non valide");
             }
         }
         #endregion

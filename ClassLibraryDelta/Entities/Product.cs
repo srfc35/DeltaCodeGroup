@@ -16,8 +16,8 @@ namespace ClassLibraryDelta.Entities
         private string brand;
         private int size;
         private float unitPriceHT;
-        private static float vatRate = 0.20f;
-        private  float discount;
+        internal static float vatRate = 0.20f;
+        private float discount;
         private float weight;
         private string color;
         private Command order;
@@ -79,7 +79,7 @@ namespace ClassLibraryDelta.Entities
             set { discount = value; }
         }
 
-        public string  Color
+        public string Color
         {
             get { return color; }
             set { color = value; }
@@ -103,9 +103,9 @@ namespace ClassLibraryDelta.Entities
         public Product(int productID, string nameProduct, string brand, int size,
             float unitPriceHT, float vatRate, float discount, float weight, string color)
         {
-            if(brand.Equals("") || unitPriceHT < 0 || size < 0)
+            if (brand.Equals("") || size <= 0 || unitPriceHT < 0 || vatRate < 0 || discount < 0 || weight < 0)
             {
-                throw new Exception("Données manquantes (marque, prix ou taille");
+                throw new Exception("Données incorrectes");
             }
             else
             {
@@ -118,8 +118,8 @@ namespace ClassLibraryDelta.Entities
                 this.color = color;
 
             }
-           
-        }    
+
+        }
         #endregion
 
         #region Methods
@@ -135,13 +135,21 @@ namespace ClassLibraryDelta.Entities
             {
                 Brand = brand;
             }
+            else
+            {
+                throw new Exception("Marque invalide");
+            }
         }
 
         public void UpdateSize(int size)
         {
-            if (size>0)
+            if (size > 0)
             {
                 Size = size;
+            }
+            else
+            {
+                throw new Exception("Taille invalide");
             }
         }
 
@@ -151,6 +159,22 @@ namespace ClassLibraryDelta.Entities
             {
                 UnitPriceHT = price;
             }
+            else
+            {
+                throw new Exception("Prix invalide");
+            }
+        }
+
+        public static void UpdateVATRate(float newVATRate)
+        {
+            if (newVATRate > 0)
+            {
+                vatRate = newVATRate;
+            }
+            else
+            {
+                throw new Exception("TVA invalide");
+            }
         }
 
         public void UpdateDiscount(float discount)
@@ -158,6 +182,10 @@ namespace ClassLibraryDelta.Entities
             if (discount > 0)
             {
                 Discount = discount;
+            }
+            else
+            {
+                throw new Exception("Remise invalide");
             }
         }
 
@@ -167,6 +195,10 @@ namespace ClassLibraryDelta.Entities
             {
                 Weight = weight;
             }
+            else
+            {
+                throw new Exception("Poids invalide");
+            }
         }
 
         public void UpdateColor(string color)
@@ -174,6 +206,10 @@ namespace ClassLibraryDelta.Entities
             if (!color.Equals(""))
             {
                 Color = color;
+            }
+            else
+            {
+                throw new Exception("Couleur invalide");
             }
         }
 

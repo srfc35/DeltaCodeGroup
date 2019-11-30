@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryDelta.Entities
 {
-    public class Phone:Product
+    public class Phone : Product
     {
         #region Attribut
         [Required]
@@ -22,12 +22,19 @@ namespace ClassLibraryDelta.Entities
         }
         #endregion
         #region Constructor
-        public Phone (int productID, string nameProduct, string brand, int size,
+        public Phone(int productID, string nameProduct, string brand, int size,
            float unitPriceHT, float vatRate, float discount, float weight,
            string color, string os) : base(productID, nameProduct, brand, size,
                          unitPriceHT, vatRate, discount, weight, color)
         {
-            this.os = os;
+            if (!os.Equals(""))
+            {
+                this.os = os;
+            }
+            else
+            {
+                throw new Exception("OS non valide");
+            }
         }
 
         public Phone()
