@@ -131,9 +131,9 @@ namespace ClassLibraryDelta.Entities
 
         public void UpdateBrand(string brand)
         {
-            if (!color.Equals(""))
+            if (!brand.Equals(""))
             {
-                Brand = color;
+                Brand = brand;
             }
         }
 

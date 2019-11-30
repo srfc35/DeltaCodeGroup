@@ -46,6 +46,11 @@ namespace ClassLibraryDelta.Entities
             {
                 Os = os;
             }
+
+            else
+            {
+                throw new Exception("L'OS spécifié n'est pas valide");
+            }
         }
 
         #endregion

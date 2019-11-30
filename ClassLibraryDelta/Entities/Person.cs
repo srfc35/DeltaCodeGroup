@@ -73,7 +73,7 @@ namespace ClassLibraryDelta.Entities
 
         public Person(string lastname, string firstname, int phone)
         {
-            if(lastname.Equals("") || firstname.Equals("") || phone < 0)
+            if(lastname.Equals("") || firstname.Equals("") || phone < 0100000000 || phone > 0999999999)
             {
                 throw new Exception("Données manquantes (nom, prénom ou téléphone)");
             }
@@ -96,6 +96,10 @@ namespace ClassLibraryDelta.Entities
             {
                 LastName = lastname;
             }
+            else
+            {
+                throw new Exception("Le nom fourni n'est pas valide");
+            }
         }
 
         public void UpdateFirstName(string firstname)
@@ -104,11 +108,23 @@ namespace ClassLibraryDelta.Entities
             {
                 FirstName = firstname;
             }
+            else
+            {
+                throw new Exception("Le prénom fourni n'est pas valide");
+            }
         }
 
         public void UpdatePhone(int phone)
         {
-            Phone = phone;
+            if( ! (phone>0100000000 || phone > 0999999999))
+            {
+                Phone = phone;
+            }
+
+            else
+            {
+                throw new Exception("Le numéro fourni n'est pas valide");
+            }
         }
 
         public void AddCommand(Command command)
