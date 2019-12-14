@@ -68,7 +68,7 @@ namespace ClassLibraryDelta.Entities
 
         public Person()
         {
-
+            this.listcommand = new List<Command>();
         }
 
         public Person(string lastname, string firstname, int phone)
@@ -79,6 +79,7 @@ namespace ClassLibraryDelta.Entities
             }
             else
             {
+                this.listcommand = new List<Command>();
                 LastName = lastname;
                 FirstName = firstname;
                 Phone = phone;
