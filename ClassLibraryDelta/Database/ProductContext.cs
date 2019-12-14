@@ -89,8 +89,16 @@ namespace ClassLibraryDelta.Database
                     this.SaveChanges();
                 }
             }
+        }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Person>().HasRequired(p => p.ListCommand);
+            modelBuilder.Entity<Command>().HasRequired(c => c.Client);
+            modelBuilder.Entity<Command>().HasRequired(c => c.Seller);
+            modelBuilder.Entity<Product>().HasOptional(p => p.Command);
 
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
