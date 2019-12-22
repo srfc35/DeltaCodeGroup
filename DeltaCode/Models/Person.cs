@@ -28,6 +28,7 @@ namespace DeltaCode.Models
             set { id = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string LastName
         {
@@ -35,6 +36,7 @@ namespace DeltaCode.Models
             set { lastname = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string FirstName
         {

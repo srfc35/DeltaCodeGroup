@@ -33,12 +33,14 @@ namespace DeltaCode.Models
             set { productID = value; }
         }
 
+        [StringLength(30)]
         public string NameProduct
         {
             get { return nameProduct; }
             set { nameProduct = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string Brand
         {
@@ -53,14 +55,18 @@ namespace DeltaCode.Models
             set { size = value; }
         }
 
+        [Range(0d, double.MaxValue)]
         [Required]
+        [Column(TypeName = "decimal(5,2)")]
         public float UnitPriceHT
         {
             get { return unitPriceHT; }
             set { unitPriceHT = value; }
         }
 
+        [Range(0d, 1d)]
         [Required]
+        [Column(TypeName = "decimal(1,2)")]
         public float VatRate
         {
             get { return vatRate; }
@@ -73,12 +79,16 @@ namespace DeltaCode.Models
             set { weight = value; }
         }
 
+        [Range(0d, 1d)]
+        [Required]
+        [Column(TypeName = "decimal(1,2)")]
         public float Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
+        [StringLength(30)]
         public string Color
         {
             get { return color; }

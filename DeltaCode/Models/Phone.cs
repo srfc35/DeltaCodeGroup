@@ -14,6 +14,8 @@ namespace DeltaCode.Models
         #endregion
 
         #region Properties
+
+        [StringLength(30)]
         [Required]
         public string Os
         {

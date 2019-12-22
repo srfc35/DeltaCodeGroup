@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,15 @@ namespace DeltaCode.Models
 
         #region Properties
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CommandID
         {
             get { return commandId; }
             set { commandId = value; }
         }
 
+        [Range(typeof(DateTime), "01/01/2019", "01/01/2100")]
         public DateTime DateCommand
         {
             get { return dateCommand; }

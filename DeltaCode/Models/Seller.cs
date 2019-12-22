@@ -27,6 +27,7 @@ namespace DeltaCode.Models
             set { sellerAccount = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string Login
         {
@@ -34,6 +35,7 @@ namespace DeltaCode.Models
             set { login = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string Password
         {
