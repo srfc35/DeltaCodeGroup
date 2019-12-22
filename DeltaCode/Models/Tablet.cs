@@ -9,19 +9,20 @@ namespace DeltaCode.Models
 {
     public class Tablet : Product
     {
-        #region Attribut
-        [Required]
+        #region Attributes
         private float screenSize;
         #endregion
 
-
         #region Properties
+
+        [Required]
         public float ScreenSize
         {
             get { return screenSize; }
             set { screenSize = value; }
         }
         #endregion
+
         #region Constructor
         public Tablet(float screenSize, int productID, string nameProduct, string brand, int size,
            float unitPriceHT, float vatRate, float discount, float weight,
@@ -43,7 +44,6 @@ namespace DeltaCode.Models
         }
 
         #endregion
-
 
         #region Methods
         public void UpdateScreenSize(float screenSize)

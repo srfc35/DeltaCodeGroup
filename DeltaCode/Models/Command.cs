@@ -8,7 +8,7 @@ namespace DeltaCode.Models
 {
     public class Command
     {
-        #region Attributs
+        #region Attributes
         private int commandId;
         private DateTime dateCommand;
         private Client client;

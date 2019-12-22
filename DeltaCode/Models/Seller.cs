@@ -27,10 +27,18 @@ namespace DeltaCode.Models
             set { sellerAccount = value; }
         }
 
+        [Required]
         public string Login
         {
             get { return login; }
             set { login = value; }
+        }
+
+        [Required]
+        public string Password
+        {
+            get { return password; }
+            set { password = value; }
         }
 
         #endregion
@@ -43,7 +51,7 @@ namespace DeltaCode.Models
         }
         public Seller(string lastname, string firstname, int phone, string login, string password) : base(lastname, firstname, phone)
         {
-            Login = login;
+            this.login = login;
             this.password = password;
         }
         #endregion

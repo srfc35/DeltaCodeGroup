@@ -10,15 +10,11 @@ namespace DeltaCode.Models
 {
     public class Client : Person
     {
-        #region Attributs
-
-
-
+        #region Attributes
         private float clientAccount;
         #endregion
 
         #region Properties
-
 
         [Required]
         public float ClientAccount
@@ -26,6 +22,7 @@ namespace DeltaCode.Models
             get { return clientAccount; }
             set { clientAccount = value; }
         }
+
         #endregion
 
         #region Constructors

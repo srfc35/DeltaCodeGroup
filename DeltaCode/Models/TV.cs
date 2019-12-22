@@ -9,20 +9,21 @@ namespace DeltaCode.Models
 {
     public class TV : Product
     {
-        #region Attribut
-        [Required]
+        #region Attributes
         private float resolution;
         #endregion
 
         #region Properties
+
+        [Required]
         public float Resolution
         {
             get { return resolution; }
             set { resolution = value; }
         }
         #endregion
-        #region Constructor
 
+        #region Constructor
 
         public TV(int productID, string nameProduct, string brand, int size,
             float unitPriceHT, float vatRate, float discount, float weight, string color, float resolution) : base(productID, nameProduct, brand, size,
@@ -42,8 +43,8 @@ namespace DeltaCode.Models
         {
         }
 
-
         #endregion
+
         #region Method
         public override string ToString()
         {

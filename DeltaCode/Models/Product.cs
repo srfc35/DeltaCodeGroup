@@ -10,7 +10,7 @@ namespace DeltaCode.Models
 {
     public class Product
     {
-        #region Attribut
+        #region Attributes
         private int productID;
         private string nameProduct;
         private string brand;

@@ -9,18 +9,19 @@ namespace DeltaCode.Models
 {
     public class Phone : Product
     {
-        #region Attribut
-        [Required]
+        #region Attributes
         private string os;
         #endregion
 
         #region Properties
+        [Required]
         public string Os
         {
             get { return os; }
             set { os = value; }
         }
         #endregion
+
         #region Constructor
         public Phone(int productID, string nameProduct, string brand, int size,
            float unitPriceHT, float vatRate, float discount, float weight,
@@ -41,6 +42,7 @@ namespace DeltaCode.Models
         {
         }
         #endregion
+
         #region Method
         public override string ToString()
         {

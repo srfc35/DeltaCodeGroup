@@ -11,30 +11,24 @@ namespace DeltaCode.Models
     public abstract class Person
     {
         #region Attributes
-
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         private int id;
-
-        [Required]
         private string lastname;
-
-        [Required]
+        private string firstname;
         private int phone;
-
-        [Required]
         private List<Command> listcommand;
-
         #endregion
 
         #region Properties
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
         {
             get { return id; }
             set { id = value; }
         }
 
+        [Required]
         public string LastName
         {
             get { return lastname; }
@@ -42,20 +36,20 @@ namespace DeltaCode.Models
         }
 
         [Required]
-        private string firstname;
-
         public string FirstName
         {
             get { return firstname; }
             set { firstname = value; }
         }
 
+        [Required]
         public int Phone
         {
             get { return phone; }
             set { phone = value; }
         }
 
+        [Required]
         public List<Command> ListCommand
         {
             get { return listcommand; }

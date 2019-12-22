@@ -9,12 +9,12 @@ namespace DeltaCode.Models
 {
     public class Computer : Product
     {
-        #region Attribut
-        [Required]
+        #region Attributes
         private int ramMemory;
         #endregion
 
         #region Properties
+        [Required]
         public int RamMemory
         {
             get { return ramMemory; }
