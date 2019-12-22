@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibraryDelta.Database
+namespace DeltaCode.Models
 {
     public class ProductContext : DbContext
 
@@ -18,9 +18,8 @@ namespace ClassLibraryDelta.Database
         public DbSet<Person> Persons { get; set; }
 
         //creer la chaine de connexion
-
-
-        public ProductContext() : base()
+        
+        public ProductContext() : base("DefaultConnection")
         {
             if (this.Database.CreateIfNotExists())
             {
@@ -40,6 +39,8 @@ namespace ClassLibraryDelta.Database
                     seller.FirstName = "F.name seller" + i;
                     seller.LastName = "L.name seller " + i;
                     seller.Phone = i;
+                    seller.Login = i.ToString();
+                    seller.Password = i.ToString();
                     seller.SellerAccount = 10 * i;
                     this.Sellers.Add(seller);
                     this.SaveChanges();
@@ -94,8 +95,10 @@ namespace ClassLibraryDelta.Database
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
+            // Exception "ListCommand est declaré sur le type Person" -> j'ai passé ListCommand dans Client et Seller
+            // WillCascadeOnDelete() : sans ça il y avait une exception 
             modelBuilder.Entity<Command>().HasRequired(c => c.Client).WithMany(cl => cl.ListCommand);
-            modelBuilder.Entity<Command>().HasRequired(c => c.Seller).WithMany(s => s.ListCommand);
+            modelBuilder.Entity<Command>().HasRequired(c => c.Seller).WithMany(s => s.ListCommand).WillCascadeOnDelete(false);
             modelBuilder.Entity<Product>().HasOptional(p => p.Order);
 
             base.OnModelCreating(modelBuilder);

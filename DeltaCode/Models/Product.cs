@@ -57,7 +57,6 @@ namespace DeltaCode.Models
 
         [Range(0d, double.MaxValue)]
         [Required]
-        [Column(TypeName = "decimal(5,2)")]
         public float UnitPriceHT
         {
             get { return unitPriceHT; }
@@ -66,7 +65,6 @@ namespace DeltaCode.Models
 
         [Range(0d, 1d)]
         [Required]
-        [Column(TypeName = "decimal(1,2)")]
         public float VatRate
         {
             get { return vatRate; }
@@ -81,7 +79,6 @@ namespace DeltaCode.Models
 
         [Range(0d, 1d)]
         [Required]
-        [Column(TypeName = "decimal(1,2)")]
         public float Discount
         {
             get { return discount; }

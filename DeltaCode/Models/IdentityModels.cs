@@ -29,5 +29,7 @@ namespace DeltaCode.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DeltaCode.Models.Client> Clients { get; set; }
     }
 }

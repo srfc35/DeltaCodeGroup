@@ -15,7 +15,6 @@ namespace DeltaCode.Models
         private string lastname;
         private string firstname;
         private int phone;
-        private List<Command> listcommand;
         #endregion
 
         #region Properties
@@ -51,20 +50,13 @@ namespace DeltaCode.Models
             set { phone = value; }
         }
 
-        [Required]
-        public List<Command> ListCommand
-        {
-            get { return listcommand; }
-            set { listcommand = value; }
-        }
-
         #endregion
 
         #region Constructors
 
         public Person()
         {
-            this.listcommand = new List<Command>();
+            
         }
 
         public Person(string lastname, string firstname, int phone)
@@ -75,11 +67,9 @@ namespace DeltaCode.Models
             }
             else
             {
-                this.listcommand = new List<Command>();
                 LastName = lastname;
                 FirstName = firstname;
                 Phone = phone;
-                ListCommand = new List<Command>();
             }
         }
 
@@ -124,10 +114,6 @@ namespace DeltaCode.Models
             }
         }
 
-        public void AddCommand(Command command)
-        {
-            ListCommand.Add(command);
-        }
         #endregion
     }
 }
