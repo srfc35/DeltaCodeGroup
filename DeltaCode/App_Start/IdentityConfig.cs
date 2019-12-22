@@ -14,23 +14,7 @@ using DeltaCode.Models;
 
 namespace DeltaCode
 {
-    public class EmailService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Indiquez votre service de messagerie ici pour envoyer un e-mail.
-            return Task.FromResult(0);
-        }
-    }
-
-    public class SmsService : IIdentityMessageService
-    {
-        public Task SendAsync(IdentityMessage message)
-        {
-            // Connectez votre service SMS ici pour envoyer un message texte.
-            return Task.FromResult(0);
-        }
-    }
+ 
 
     // Configurer l'application que le gestionnaire des utilisateurs a utilisée dans cette application. UserManager est défini dans ASP.NET Identity et est utilisé par l'application.
     public class ApplicationUserManager : UserManager<ApplicationUser>
@@ -65,25 +49,6 @@ namespace DeltaCode
             manager.DefaultAccountLockoutTimeSpan = TimeSpan.FromMinutes(5);
             manager.MaxFailedAccessAttemptsBeforeLockout = 5;
 
-            // Inscrire les fournisseurs d'authentification à 2 facteurs. Cette application utilise le téléphone et les e-mails comme procédure de réception de code pour confirmer l'utilisateur
-            // Vous pouvez écrire votre propre fournisseur et le connecter ici.
-            manager.RegisterTwoFactorProvider("Code téléphonique ", new PhoneNumberTokenProvider<ApplicationUser>
-            {
-                MessageFormat = "Votre code de sécurité est {0}"
-            });
-            manager.RegisterTwoFactorProvider("Code d'e-mail", new EmailTokenProvider<ApplicationUser>
-            {
-                Subject = "Code de sécurité",
-                BodyFormat = "Votre code de sécurité est {0}"
-            });
-            manager.EmailService = new EmailService();
-            manager.SmsService = new SmsService();
-            var dataProtectionProvider = options.DataProtectionProvider;
-            if (dataProtectionProvider != null)
-            {
-                manager.UserTokenProvider = 
-                    new DataProtectorTokenProvider<ApplicationUser>(dataProtectionProvider.Create("ASP.NET Identity"));
-            }
             return manager;
         }
     }
