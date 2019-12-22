@@ -186,6 +186,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Phone.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductContext.cs" />
     <Compile Include="Models\Seller.cs" />
     <Compile Include="Models\Tablet.cs" />
     <Compile Include="Models\TV.cs" />
