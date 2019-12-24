@@ -19,8 +19,7 @@ namespace ClassLibraryDelta.Database
 
         //creer la chaine de connexion
 
-
-        public ProductContext() : base()
+        public ProductContext() : base("DefaultConnection")
         {
             if (this.Database.CreateIfNotExists())
             {
@@ -40,6 +39,8 @@ namespace ClassLibraryDelta.Database
                     seller.FirstName = "F.name seller" + i;
                     seller.LastName = "L.name seller " + i;
                     seller.Phone = i;
+                    seller.Login = i.ToString();
+                    seller.Password = i.ToString();
                     seller.SellerAccount = 10 * i;
                     this.Sellers.Add(seller);
                     this.SaveChanges();
@@ -49,7 +50,7 @@ namespace ClassLibraryDelta.Database
                     Computer computer = new Computer();
                     computer.NameProduct = "Computer" + i;
                     computer.Brand = "Dell " + i;
-                    computer.RamMemory= 4 + i;
+                    computer.RamMemory = 4 + i;
                     computer.UnitPriceHT = 100 * i;
                     computer.VatRate = 0.2f;
                     this.Products.Add(computer);
@@ -68,10 +69,10 @@ namespace ClassLibraryDelta.Database
                 }
                 for (int i = 1; i < 4; i++)
                 {
-                    Tablet tablet= new Tablet();
+                    Tablet tablet = new Tablet();
                     tablet.NameProduct = "Tablet" + i;
                     tablet.Brand = "Ipad" + i;
-                    tablet.ScreenSize= 7 + i;
+                    tablet.ScreenSize = 7 + i;
                     tablet.UnitPriceHT = 100 * i;
                     tablet.VatRate = 0.2f;
                     this.Products.Add(tablet);
@@ -82,7 +83,7 @@ namespace ClassLibraryDelta.Database
                     Phone phone = new Phone();
                     phone.NameProduct = "Phone" + i;
                     phone.Brand = "Iphone" + i;
-                    phone.Os= "IOS";
+                    phone.Os = "IOS";
                     phone.UnitPriceHT = 200 * i;
                     phone.VatRate = 0.2f;
                     this.Products.Add(phone);
@@ -93,10 +94,12 @@ namespace ClassLibraryDelta.Database
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Person>().HasRequired(p => p.ListCommand);
-            modelBuilder.Entity<Command>().HasRequired(c => c.Client);
-            modelBuilder.Entity<Command>().HasRequired(c => c.Seller);
-            modelBuilder.Entity<Product>().HasOptional(p => p.Command);
+
+            // Exception "ListCommand est declaré sur le type Person" -> j'ai passé ListCommand dans Client et Seller
+            // WillCascadeOnDelete() : sans ça il y avait une exception 
+            modelBuilder.Entity<Command>().HasRequired(c => c.Client).WithMany(cl => cl.ListCommand);
+            modelBuilder.Entity<Command>().HasRequired(c => c.Seller).WithMany(s => s.ListCommand).WillCascadeOnDelete(false);
+            modelBuilder.Entity<Product>().HasOptional(p => p.Order);
 
             base.OnModelCreating(modelBuilder);
         }

@@ -25,7 +25,7 @@ namespace Tests
             {
                 c = new Client("", "Prénom", 0612345678);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -41,7 +41,7 @@ namespace Tests
             {
                 c = new Client("Nom", "", 0612345678);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -57,7 +57,7 @@ namespace Tests
             {
                 c = new Client("Nom", "Prénom", 0012345678);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -73,7 +73,7 @@ namespace Tests
             {
                 c = new Client("Nom", "Prénom", 1999999999);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -89,7 +89,7 @@ namespace Tests
             {
                 c = new Client("Nom", "Prénom", 0123456789);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -108,7 +108,7 @@ namespace Tests
             {
                 c.UpdateLastName("");
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -125,7 +125,7 @@ namespace Tests
             {
                 c.UpdateLastName(n);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -141,7 +141,7 @@ namespace Tests
             {
                 c.UpdateFirstName("");
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -158,7 +158,7 @@ namespace Tests
             {
                 c.UpdateFirstName(p);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -175,7 +175,7 @@ namespace Tests
             {
                 c.UpdatePhone(0012345678);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -192,7 +192,7 @@ namespace Tests
             {
                 c.UpdatePhone(1999999999);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -209,7 +209,7 @@ namespace Tests
             {
                 c.UpdatePhone(newValidPhone);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

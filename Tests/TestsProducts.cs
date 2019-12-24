@@ -36,7 +36,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, "", size, unitPriceHT, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -52,7 +52,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, 0, unitPriceHT, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -68,7 +68,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, size, -0.5f, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -84,7 +84,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, size, unitPriceHT, -0.5f, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -100,7 +100,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, size, unitPriceHT, vatRate, -0.5f, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -116,7 +116,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, size, unitPriceHT, vatRate, discount, -0.5f, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -132,7 +132,7 @@ namespace Tests
             {
                 c = new Computer(ram, ID, name, brand, size, unitPriceHT, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -148,7 +148,7 @@ namespace Tests
             {
                 c = new Computer(0, ID, name, brand, size, unitPriceHT, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -164,7 +164,7 @@ namespace Tests
             {
                 p = new Phone(ID, name, brand, size, unitPriceHT, vatRate, discount, weight, color, "");
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -180,7 +180,7 @@ namespace Tests
             {
                 t = new Tablet(0, ID, name, brand, size, unitPriceHT, vatRate, discount, weight, color);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -196,7 +196,7 @@ namespace Tests
             {
                 t = new TV(ID, name, brand, size, unitPriceHT, vatRate, discount, weight, color, 0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -215,7 +215,7 @@ namespace Tests
             {
                 c.UpdateBrand("");
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -231,7 +231,7 @@ namespace Tests
             {
                 c.UpdateBrand(validBrand);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -247,7 +247,7 @@ namespace Tests
             {
                 c.UpdateSize(0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -263,7 +263,7 @@ namespace Tests
             {
                 c.UpdateSize(validSize);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -279,7 +279,7 @@ namespace Tests
             {
                 c.UpdatePrice(-1);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -295,7 +295,7 @@ namespace Tests
             {
                 c.UpdatePrice(validPrice);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -311,7 +311,7 @@ namespace Tests
             {
                 c.UpdateDiscount(-1);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -327,7 +327,7 @@ namespace Tests
             {
                 c.UpdateDiscount(validDiscount);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -343,7 +343,7 @@ namespace Tests
             {
                 c.UpdateWeight(0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -359,7 +359,7 @@ namespace Tests
             {
                 c.UpdateDiscount(validWeight);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -376,7 +376,7 @@ namespace Tests
             {
                 c.UpdateRamMemory(0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -392,7 +392,7 @@ namespace Tests
             {
                 c.UpdateRamMemory(validRAM);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -409,7 +409,7 @@ namespace Tests
             {
                 p.UpdateOS("");
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -426,7 +426,7 @@ namespace Tests
             {
                 p.UpdateOS(validOS2);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -443,7 +443,7 @@ namespace Tests
             {
                 t.UpdateScreenSize(0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -460,7 +460,7 @@ namespace Tests
             {
                 t.UpdateScreenSize(validScreenSize2);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -477,7 +477,7 @@ namespace Tests
             {
                 t.UpdateResolution(0);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }
@@ -494,7 +494,7 @@ namespace Tests
             {
                 t.UpdateScreenSize(validResolution2);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

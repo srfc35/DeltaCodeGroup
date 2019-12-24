@@ -11,55 +11,43 @@ namespace ClassLibraryDelta.Entities
     public abstract class Person
     {
         #region Attributes
-        
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         private int id;
-
-        [Required]
         private string lastname;
-
-        [Required]
+        private string firstname;
         private int phone;
-
-        [Required]
-        private List<Command> listcommand;
-
         #endregion
 
         #region Properties
 
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id
         {
             get { return id; }
             set { id = value; }
-        }        
+        }
 
+        [StringLength(30)]
+        [Required]
         public string LastName
         {
             get { return lastname; }
             set { lastname = value; }
         }
 
+        [StringLength(30)]
         [Required]
-        private string firstname;
-
         public string FirstName
         {
             get { return firstname; }
             set { firstname = value; }
         }
 
+        [Required]
         public int Phone
         {
             get { return phone; }
             set { phone = value; }
-        }        
-
-        public List<Command> ListCommand
-        {
-            get { return listcommand; }
-            set { listcommand = value; }
         }
 
         #endregion
@@ -68,22 +56,20 @@ namespace ClassLibraryDelta.Entities
 
         public Person()
         {
-            this.listcommand = new List<Command>();
+
         }
 
         public Person(string lastname, string firstname, int phone)
         {
-            if(lastname.Equals("") || firstname.Equals("") || phone < 0100000000 || phone > 0999999999)
+            if (lastname.Equals("") || firstname.Equals("") || phone < 0100000000 || phone > 0999999999)
             {
                 throw new Exception("Données manquantes (nom, prénom ou téléphone)");
             }
             else
             {
-                this.listcommand = new List<Command>();
                 LastName = lastname;
                 FirstName = firstname;
                 Phone = phone;
-                ListCommand = new List<Command>();
             }
         }
 
@@ -117,7 +103,7 @@ namespace ClassLibraryDelta.Entities
 
         public void UpdatePhone(int phone)
         {
-            if( ! (phone>0100000000 || phone > 0999999999))
+            if (!(phone > 0100000000 || phone > 0999999999))
             {
                 Phone = phone;
             }
@@ -128,10 +114,6 @@ namespace ClassLibraryDelta.Entities
             }
         }
 
-        public void AddCommand(Command command)
-        {
-            ListCommand.Add(command);
-        }
         #endregion
     }
 }
