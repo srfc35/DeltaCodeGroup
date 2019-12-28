@@ -23,7 +23,7 @@ namespace DeltaCode.Models.Security
                 // Créer un utilisateur dont le login sera "admin" avec le mot de passe "admin" et le role Administrateur
                 UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(this));
                 MyIdentityUser admin = new MyIdentityUser() { UserName = "admin", Email = "admin@sellit.com", Login = "admin" };
-                var result = userManager.Create(admin, "admin");
+                var result = userManager.Create(admin, "Admin!123");
                 if (!result.Succeeded)
                 {
                     this.Database.Delete();
