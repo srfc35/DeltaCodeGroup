@@ -52,12 +52,12 @@ namespace DeltaCode.Controllers
 
         //
         // GET: /Manage/Index
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Votre mot de passe a été changé."
                 : message == ManageMessageId.SetPasswordSuccess ? "Votre mot de passe a été défini."
-                : message == ManageMessageId.SetTwoFactorSuccess ? "Votre fournisseur d'authentification à 2 facteurs a été défini."
                 : message == ManageMessageId.Error ? "Une erreur s'est produite."
                 : message == ManageMessageId.AddPhoneSuccess ? "Votre numéro de téléphone a été ajouté."
                 : message == ManageMessageId.RemovePhoneSuccess ? "Votre numéro de téléphone a été supprimé."
@@ -68,9 +68,7 @@ namespace DeltaCode.Controllers
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                Logins = await UserManager.GetLoginsAsync(userId)
             };
             return View(model);
         }
@@ -78,6 +76,7 @@ namespace DeltaCode.Controllers
         //
         // POST: /Manage/RemoveLogin
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RemoveLogin(string loginProvider, string providerKey)
         {
@@ -128,36 +127,6 @@ namespace DeltaCode.Controllers
                 await UserManager.SmsService.SendAsync(message);
             }
             return RedirectToAction("VerifyPhoneNumber", new { PhoneNumber = model.Number });
-        }
-
-        //
-        // POST: /Manage/EnableTwoFactorAuthentication
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EnableTwoFactorAuthentication()
-        {
-            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), true);
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user != null)
-            {
-                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            }
-            return RedirectToAction("Index", "Manage");
-        }
-
-        //
-        // POST: /Manage/DisableTwoFactorAuthentication
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DisableTwoFactorAuthentication()
-        {
-            await UserManager.SetTwoFactorEnabledAsync(User.Identity.GetUserId(), false);
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            if (user != null)
-            {
-                await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-            }
-            return RedirectToAction("Index", "Manage");
         }
 
         //
@@ -278,6 +247,7 @@ namespace DeltaCode.Controllers
 
         //
         // GET: /Manage/ManageLogins
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> ManageLogins(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
@@ -302,6 +272,7 @@ namespace DeltaCode.Controllers
         //
         // POST: /Manage/LinkLogin
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         [ValidateAntiForgeryToken]
         public ActionResult LinkLogin(string provider)
         {
@@ -311,6 +282,7 @@ namespace DeltaCode.Controllers
 
         //
         // GET: /Manage/LinkLoginCallback
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult> LinkLoginCallback()
         {
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync(XsrfKey, User.Identity.GetUserId());
