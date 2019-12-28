@@ -16,12 +16,14 @@ namespace DeltaCode.Models.Security
         {
             if (this.Database.CreateIfNotExists())
             {
-                IdentityRole userRole = RoleUtils.CreateOrGetRole("User");
+                // Créer un role Administrateur et un role User
                 IdentityRole adminRole = RoleUtils.CreateOrGetRole("Admin");
+                IdentityRole userRole = RoleUtils.CreateOrGetRole("User");
 
+                // Créer un utilisateur dont le login sera "admin" avec le mot de passe "admin" et le role Administrateur
                 UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(this));
-                MyIdentityUser admin = new MyIdentityUser() { UserName = "admin", Email = "admin@mysite.com", Login = "admin" };
-                var result = userManager.Create(admin, "Admin!123");
+                MyIdentityUser admin = new MyIdentityUser() { UserName = "admin", Email = "admin@sellit.com", Login = "admin" };
+                var result = userManager.Create(admin, "admin");
                 if (!result.Succeeded)
                 {
                     this.Database.Delete();
