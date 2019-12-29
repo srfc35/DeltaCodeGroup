@@ -16,12 +16,14 @@ namespace DeltaCode.Controllers
         private ProductContext db = new ProductContext();
 
         // GET: Sellers
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Sellers.ToList());
         }
 
         // GET: Sellers/Details/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Sellers/Create
+        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +48,7 @@ namespace DeltaCode.Controllers
         // POST: Sellers/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,LastName,FirstName,Phone,SellerAccount,Login,Password")] Seller seller)
@@ -60,6 +64,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Sellers/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +82,7 @@ namespace DeltaCode.Controllers
         // POST: Sellers/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,Phone,SellerAccount,Login,Password")] Seller seller)
@@ -91,6 +97,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Sellers/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +113,7 @@ namespace DeltaCode.Controllers
         }
 
         // POST: Sellers/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
