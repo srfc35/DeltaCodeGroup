@@ -18,7 +18,7 @@ namespace DeltaCode.Controllers
         // GET: Sellers
         public ActionResult Index()
         {
-            return View(db.Persons.ToList());
+            return View(db.Sellers.ToList());
         }
 
         // GET: Sellers/Details/5
@@ -28,7 +28,7 @@ namespace DeltaCode.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seller seller = db.Persons.Find(id);
+            Seller seller = db.Sellers.Find(id);
             if (seller == null)
             {
                 return HttpNotFound();
@@ -51,7 +51,7 @@ namespace DeltaCode.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Persons.Add(seller);
+                db.Sellers.Add(seller);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -66,7 +66,7 @@ namespace DeltaCode.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seller seller = db.Persons.Find(id);
+            Seller seller = db.Sellers.Find(id);
             if (seller == null)
             {
                 return HttpNotFound();
@@ -97,7 +97,7 @@ namespace DeltaCode.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Seller seller = db.Persons.Find(id);
+            Seller seller = db.Sellers.Find(id);
             if (seller == null)
             {
                 return HttpNotFound();
@@ -110,8 +110,8 @@ namespace DeltaCode.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Seller seller = db.Persons.Find(id);
-            db.Persons.Remove(seller);
+            Seller seller = db.Sellers.Find(id);
+            db.Sellers.Remove(seller);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
