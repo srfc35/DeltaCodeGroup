@@ -15,6 +15,7 @@ namespace ClassLibraryDelta.Entities
         private string lastname;
         private string firstname;
         private int phone;
+        private string email;
         #endregion
 
         #region Properties
@@ -50,6 +51,12 @@ namespace ClassLibraryDelta.Entities
             set { phone = value; }
         }
 
+        [Required]
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
         #endregion
 
         #region Constructors
@@ -59,7 +66,7 @@ namespace ClassLibraryDelta.Entities
 
         }
 
-        public Person(string lastname, string firstname, int phone)
+        public Person(string lastname, string firstname, int phone, string email)
         {
             if (lastname.Equals("") || firstname.Equals("") || phone < 0100000000 || phone > 0999999999)
             {
@@ -70,6 +77,7 @@ namespace ClassLibraryDelta.Entities
                 LastName = lastname;
                 FirstName = firstname;
                 Phone = phone;
+                Email = email;
             }
         }
 

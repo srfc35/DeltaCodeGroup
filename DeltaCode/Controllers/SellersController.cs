@@ -20,14 +20,12 @@ namespace DeltaCode.Controllers
         private ProductContext db = new ProductContext();
 
         // GET: Sellers
-        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Sellers.ToList());
         }
 
         // GET: Sellers/Details/5
-        [Authorize(Roles = "Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -43,7 +41,6 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Sellers/Create
-        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -55,7 +52,7 @@ namespace DeltaCode.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LastName,FirstName,Phone,SellerAccount,Login,Password")] Seller seller)
+        public ActionResult Create([Bind(Include = "Id,LastName,FirstName,Phone,Email,SellerAccount,Login,Password")] Seller seller)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +61,7 @@ namespace DeltaCode.Controllers
                 {
                     IdentityRole userRole = RoleUtils.CreateOrGetRole("Seller");
                     UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(secudb));
-                    MyIdentityUser sellerUser = new MyIdentityUser() { UserName = seller.Login, Email = "test@test.com", Login = seller.Login }; ;
+                    MyIdentityUser sellerUser = new MyIdentityUser() { UserName = seller.Login, Email = seller.Email, Login = seller.Login }; ;
                     var result = userManager.Create(sellerUser, seller.Password);
                     if (!result.Succeeded)
                     {
@@ -83,8 +80,8 @@ namespace DeltaCode.Controllers
             return View(seller);
         }
 
+
         // GET: Sellers/Edit/5
-        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -102,10 +99,9 @@ namespace DeltaCode.Controllers
         // POST: Sellers/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,Phone,SellerAccount,Login,Password")] Seller seller)
+        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,Phone,Email,SellerAccount,Login,Password")] Seller seller)
         {
             if (ModelState.IsValid)
             {
@@ -117,7 +113,6 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Sellers/Delete/5
-        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -133,13 +128,12 @@ namespace DeltaCode.Controllers
         }
 
         // POST: Sellers/Delete/5
-        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
             Seller seller = db.Sellers.Find(id);
-            db.Sellers.Remove(seller);
+            db.Persons.Remove(seller);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

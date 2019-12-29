@@ -59,7 +59,7 @@ namespace ClassLibraryDelta.Entities
         {
             this.listcommand = new List<Command>();
         }
-        public Seller(string lastname, string firstname, int phone, string login, string password) : base(lastname, firstname, phone)
+        public Seller(string lastname, string firstname, int phone, string email, string login, string password) : base(lastname, firstname, phone, email)
         {
             this.login = login;
             this.password = password;

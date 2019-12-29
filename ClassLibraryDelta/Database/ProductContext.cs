@@ -29,6 +29,7 @@ namespace ClassLibraryDelta.Database
                     client.FirstName = "F.name client " + i;
                     client.LastName = "L.name client " + i;
                     client.Phone = i;
+                    client.Email = i.ToString() + "@client.com";
                     client.ClientAccount = 10 * i;
                     this.Clients.Add(client);
                     this.SaveChanges();
@@ -39,8 +40,9 @@ namespace ClassLibraryDelta.Database
                     seller.FirstName = "F.name seller" + i;
                     seller.LastName = "L.name seller " + i;
                     seller.Phone = i;
+                    seller.Email = i.ToString() + "@seller.com";
                     seller.Login = i.ToString();
-                    seller.Password = i.ToString();
+                    seller.Password = (10000*i).ToString();
                     seller.SellerAccount = 10 * i;
                     this.Sellers.Add(seller);
                     this.SaveChanges();

@@ -39,7 +39,7 @@ namespace ClassLibraryDelta.Entities
             this.listcommand = new List<Command>();
         }
 
-        public Client(string lastname, string firstname, int phone) : base(lastname, firstname, phone)
+        public Client(string lastname, string firstname, int phone, string email) : base(lastname, firstname, phone, email)
         {
             this.listcommand = new List<Command>();
         }

@@ -23,7 +23,7 @@ namespace Tests
             Client c = null;
             try
             {
-                c = new Client("", "Prénom", 0612345678);
+                c = new Client("", "Prénom", 0612345678, "plouf@client.com");
             }
             catch (Exception)
             {
@@ -39,7 +39,7 @@ namespace Tests
             Client c = null;
             try
             {
-                c = new Client("Nom", "", 0612345678);
+                c = new Client("Nom", "", 0612345678, "plouf@client.com");
             }
             catch (Exception)
             {
@@ -55,7 +55,7 @@ namespace Tests
             Client c = null;
             try
             {
-                c = new Client("Nom", "Prénom", 0012345678);
+                c = new Client("Nom", "Prénom", 0012345678, "plouf@client.com");
             }
             catch (Exception)
             {
@@ -71,7 +71,7 @@ namespace Tests
             Client c = null;
             try
             {
-                c = new Client("Nom", "Prénom", 1999999999);
+                c = new Client("Nom", "Prénom", 1999999999, "plouf@client.com");
             }
             catch (Exception)
             {
@@ -87,7 +87,7 @@ namespace Tests
             Client c = null;
             try
             {
-                c = new Client("Nom", "Prénom", 0123456789);
+                c = new Client("Nom", "Prénom", 0123456789, "plouf@client.com");
             }
             catch (Exception)
             {
@@ -103,7 +103,7 @@ namespace Tests
         [Test]
         public static void ClientUpdatedWithoutLastName()
         {
-            Client c = new Client("Nom", "Prénom", 0123456789);
+            Client c = new Client("Nom", "Prénom", 0123456789, "plouf@client.com");
             try
             {
                 c.UpdateLastName("");
@@ -119,7 +119,7 @@ namespace Tests
         [Test]
         public static void ClientUpdatedWithValidLastName()
         {
-            Client c = new Client("Nom", "Prénom", 0123456789);
+            Client c = new Client("Nom", "Prénom", 0123456789, "plouf@client.com");
             string n = "NouveauNom";
             try
             {
@@ -136,7 +136,7 @@ namespace Tests
         [Test]
         public static void ClientUpdatedWithoutFirstName()
         {
-            Client c = new Client("Nom", "Prénom", 0612345678);
+            Client c = new Client("Nom", "Prénom", 0612345678, "plouf@client.com");
             try
             {
                 c.UpdateFirstName("");
@@ -152,7 +152,7 @@ namespace Tests
         [Test]
         public static void ClientUpdatedWithValidFirstName()
         {
-            Client c = new Client("Nom", "Prénom", 0123456789);
+            Client c = new Client("Nom", "Prénom", 0123456789, "plouf@client.com");
             string p = "NouveauPrénom";
             try
             {
@@ -170,7 +170,7 @@ namespace Tests
         public static void ClientUpdatedWithPhone01()
         {
             int validPhone = 0123456789;
-            Client c = new Client("Nom", "Prénom", validPhone);
+            Client c = new Client("Nom", "Prénom", validPhone, "plouf@client.com");
             try
             {
                 c.UpdatePhone(0012345678);
@@ -187,7 +187,7 @@ namespace Tests
         public static void ClientUpdatedWithPhone09()
         {
             int validPhone = 0123456789;
-            Client c = new Client("Nom", "Prénom", validPhone);
+            Client c = new Client("Nom", "Prénom", validPhone, "plouf@client.com");
             try
             {
                 c.UpdatePhone(1999999999);
@@ -204,7 +204,7 @@ namespace Tests
         {
             int validPhone = 0123456789;
             int newValidPhone = 0600000000;
-            Client c = new Client("Nom", "Prénom", validPhone);
+            Client c = new Client("Nom", "Prénom", validPhone, "plouf@client.com");
             try
             {
                 c.UpdatePhone(newValidPhone);
