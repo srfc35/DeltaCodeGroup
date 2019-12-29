@@ -8,6 +8,10 @@ using System.Web;
 using System.Web.Mvc;
 using ClassLibraryDelta.Database;
 using ClassLibraryDelta.Entities;
+using DeltaCode.Models.Security;
+using DeltaCode.Utils.IdentityUtils;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace DeltaCode.Controllers
 {
@@ -55,8 +59,24 @@ namespace DeltaCode.Controllers
         {
             if (ModelState.IsValid)
             {
+                // Creation du vendeur dans le SecurityContext du projet ASP.NET
+                using (var secudb = new SecurityDbContext())
+                {
+                    IdentityRole userRole = RoleUtils.CreateOrGetRole("Seller");
+                    UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(secudb));
+                    MyIdentityUser sellerUser = new MyIdentityUser() { UserName = seller.Login, Email = "test@test.com", Login = seller.Login }; ;
+                    var result = userManager.Create(sellerUser, seller.Password);
+                    if (!result.Succeeded)
+                    {
+                        throw new System.Exception("database insert fail");
+                    }
+                    RoleUtils.AssignRoleToUser(userRole, sellerUser);
+                }
+
+                // Creation du vendeur dans le ProductContext du projet librairie
                 db.Sellers.Add(seller);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
