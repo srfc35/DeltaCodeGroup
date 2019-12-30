@@ -51,7 +51,7 @@ namespace DeltaCode.Controllers
         [Authorize(Roles = "User, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,VatRate,Weight,Discount,Color")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,Weight,Discount,Color")] Product product)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DeltaCode.Controllers
         [Authorize(Roles = "User, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,VatRate,Weight,Discount,Color")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,Weight,Discount,Color")] Product product)
         {
             if (ModelState.IsValid)
             {
