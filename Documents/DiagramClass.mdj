@@ -731,13 +731,47 @@
 											"height": 13,
 											"text": "+SellerAccount",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFvWEr3uersbxk=",
+											"_parent": {
+												"$ref": "AAAAAAFuZF/u94gIM3A="
+											},
+											"model": {
+												"$ref": "AAAAAAFvWEr3durpLC4="
+											},
+											"font": "Arial;13;0",
+											"left": 25,
+											"top": 335,
+											"width": 135,
+											"height": 13,
+											"text": "+login",
+											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAFvWEsqU+toPRE=",
+											"_parent": {
+												"$ref": "AAAAAAFuZF/u94gIM3A="
+											},
+											"model": {
+												"$ref": "AAAAAAFvWEsqI+tlVHE="
+											},
+											"font": "Arial;13;0",
+											"left": 25,
+											"top": 350,
+											"width": 135,
+											"height": 13,
+											"text": "+password",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 20,
 									"top": 300,
 									"width": 145,
-									"height": 38
+									"height": 68
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -750,7 +784,7 @@
 									},
 									"font": "Arial;13;0",
 									"left": 20,
-									"top": 338,
+									"top": 368,
 									"width": 145,
 									"height": 10
 								},
@@ -3650,6 +3684,7 @@
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
 							"name": "ProductID",
+							"type": "",
 							"isID": true
 						},
 						{
@@ -3658,7 +3693,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "NameProduct"
+							"name": "NameProduct",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3666,7 +3702,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "Brand"
+							"name": "Brand",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3674,7 +3711,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "Size"
+							"name": "Size",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3682,7 +3720,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "UnitPriceHT"
+							"name": "UnitPriceHT",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3690,7 +3729,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "VATRate"
+							"name": "VATRate",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3698,7 +3738,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "Discount"
+							"name": "Discount",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3706,7 +3747,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "Weight"
+							"name": "Weight",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -3714,7 +3756,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF2qK4d1mwo="
 							},
-							"name": "Color"
+							"name": "Color",
+							"type": ""
 						}
 					]
 				},
@@ -3988,6 +4031,7 @@
 								"$ref": "AAAAAAFuZF8GZYeksX4="
 							},
 							"name": "CommandID",
+							"type": "",
 							"isID": true
 						},
 						{
@@ -3996,7 +4040,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF8GZYeksX4="
 							},
-							"name": "DateCommand"
+							"name": "DateCommand",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4004,7 +4049,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF8GZYeksX4="
 							},
-							"name": "ClientID"
+							"name": "ClientID",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4012,7 +4058,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF8GZYeksX4="
 							},
-							"name": "SellerID"
+							"name": "SellerID",
+							"type": ""
 						}
 					]
 				},
@@ -4092,6 +4139,7 @@
 								"$ref": "AAAAAAFuZF/u94gAxpQ="
 							},
 							"name": "SellerID",
+							"type": "",
 							"isID": true
 						},
 						{
@@ -4100,7 +4148,26 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZF/u94gAxpQ="
 							},
-							"name": "SellerAccount"
+							"name": "SellerAccount",
+							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFvWEr3durpLC4=",
+							"_parent": {
+								"$ref": "AAAAAAFuZF/u94gAxpQ="
+							},
+							"name": "login",
+							"type": ""
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAFvWEsqI+tlVHE=",
+							"_parent": {
+								"$ref": "AAAAAAFuZF/u94gAxpQ="
+							},
+							"name": "password",
+							"type": ""
 						}
 					]
 				},
@@ -4169,6 +4236,7 @@
 								"$ref": "AAAAAAFuZG93oZo4RSw="
 							},
 							"name": "ClientID",
+							"type": "",
 							"isID": true
 						},
 						{
@@ -4177,7 +4245,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZG93oZo4RSw="
 							},
-							"name": "ClientAccount"
+							"name": "ClientAccount",
+							"type": ""
 						}
 					]
 				},
@@ -4226,7 +4295,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZI0kOKwM64U="
 							},
-							"name": "CommandID"
+							"name": "CommandID",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4234,7 +4304,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZI0kOKwM64U="
 							},
-							"name": "ProductID"
+							"name": "ProductID",
+							"type": ""
 						}
 					]
 				},
@@ -4396,7 +4467,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZPG6Qcrvld4="
 							},
-							"name": "RamMemory"
+							"name": "RamMemory",
+							"type": ""
 						}
 					]
 				},
@@ -4521,7 +4593,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZPtCANV9rnM="
 							},
-							"name": "FirstName"
+							"name": "FirstName",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4529,7 +4602,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZPtCANV9rnM="
 							},
-							"name": "LastName"
+							"name": "LastName",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4537,7 +4611,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZPtCANV9rnM="
 							},
-							"name": "Phone"
+							"name": "Phone",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -4545,7 +4620,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZPtCANV9rnM="
 							},
-							"name": "ListCommand"
+							"name": "ListCommand",
+							"type": ""
 						}
 					]
 				},
@@ -4605,7 +4681,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZQ7JQQ4hBUg="
 							},
-							"name": "Resolution"
+							"name": "Resolution",
+							"type": ""
 						}
 					]
 				},
@@ -4665,7 +4742,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZQ8axhCx5kI="
 							},
-							"name": "OS"
+							"name": "OS",
+							"type": ""
 						}
 					]
 				},
@@ -4725,7 +4803,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuZQ/pEBMBnjY="
 							},
-							"name": "ScreenSize"
+							"name": "ScreenSize",
+							"type": ""
 						}
 					]
 				}
