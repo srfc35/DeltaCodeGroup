@@ -42,7 +42,7 @@ namespace ClassLibraryDelta.Database
                     seller.Phone = i;
                     seller.Email = i.ToString() + "@seller.com";
                     seller.Login = i.ToString();
-                    seller.Password = (10000*i).ToString();
+                    seller.Password = (100000*i).ToString();
                     seller.SellerAccount = 10 * i;
                     this.Sellers.Add(seller);
                     this.SaveChanges();

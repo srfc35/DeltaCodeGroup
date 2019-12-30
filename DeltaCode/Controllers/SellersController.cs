@@ -59,7 +59,7 @@ namespace DeltaCode.Controllers
                 // Creation du vendeur dans le SecurityContext du projet ASP.NET
                 using (var secudb = new SecurityDbContext())
                 {
-                    IdentityRole userRole = RoleUtils.CreateOrGetRole("Seller");
+                    IdentityRole userRole = RoleUtils.CreateOrGetRole("User");
                     UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(secudb));
                     MyIdentityUser sellerUser = new MyIdentityUser() { UserName = seller.Login, Email = seller.Email, Login = seller.Login }; ;
                     var result = userManager.Create(sellerUser, seller.Password);
@@ -132,10 +132,23 @@ namespace DeltaCode.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Seller seller = db.Sellers.Find(id);
             db.Persons.Remove(seller);
             db.SaveChanges();
+
+            using (var secudb = new SecurityDbContext())
+            {
+                UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(secudb));
+                var sellerToRemove = userManager.FindByEmail(seller.Email);
+                var res = userManager.Delete(sellerToRemove);
+                if (!res.Succeeded)
+                {
+                    throw new System.Exception("database remove fail");
+                }
+            }
             return RedirectToAction("Index");
+            
         }
 
         protected override void Dispose(bool disposing)
