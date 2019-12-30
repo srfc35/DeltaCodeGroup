@@ -16,12 +16,14 @@ namespace DeltaCode.Controllers
         private ProductContext db = new ProductContext();
 
         // GET: Products
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Index()
         {
             return View(db.Products.ToList());
         }
 
         // GET: Products/Details/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -37,6 +39,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Products/Create
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Create()
         {
             return View();
@@ -45,6 +48,7 @@ namespace DeltaCode.Controllers
         // POST: Products/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,VatRate,Weight,Discount,Color")] Product product)
@@ -60,6 +64,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Products/Edit/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -77,6 +82,7 @@ namespace DeltaCode.Controllers
         // POST: Products/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "User, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ProductID,NameProduct,Brand,Size,UnitPriceHT,VatRate,Weight,Discount,Color")] Product product)
@@ -91,6 +97,7 @@ namespace DeltaCode.Controllers
         }
 
         // GET: Products/Delete/5
+        [Authorize(Roles = "User, Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -106,6 +113,7 @@ namespace DeltaCode.Controllers
         }
 
         // POST: Products/Delete/5
+        [Authorize(Roles = "User, Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
