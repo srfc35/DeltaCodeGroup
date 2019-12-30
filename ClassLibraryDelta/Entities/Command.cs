@@ -63,6 +63,11 @@ namespace ClassLibraryDelta.Entities
                 throw new Exception("Client null ou Seller null");
             }
         }
+
+        public Command()
+        {
+
+        }
         #endregion
     }
 

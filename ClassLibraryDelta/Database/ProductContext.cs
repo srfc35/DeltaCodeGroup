@@ -15,7 +15,7 @@ namespace ClassLibraryDelta.Database
         public DbSet<Product> Products { get; set; }
         public DbSet<Command> Commands { get; set; }
         public DbSet<Client> Clients { get; set; }
-        public DbSet<Person> Persons { get; set; }
+        //public DbSet<Person> Persons { get; set; }
 
         //creer la chaine de connexion
 
@@ -23,6 +23,8 @@ namespace ClassLibraryDelta.Database
         {
             if (this.Database.CreateIfNotExists())
             {
+
+                // Creer 10 clients
                 for (int i = 0; i < 10; i++)
                 {
                     Client client = new Client();
@@ -34,6 +36,8 @@ namespace ClassLibraryDelta.Database
                     this.Clients.Add(client);
                     this.SaveChanges();
                 }
+
+                // Creer 3 vendeurs
                 for (int i = 0; i < 3; i++)
                 {
                     Seller seller = new Seller();
@@ -47,6 +51,8 @@ namespace ClassLibraryDelta.Database
                     this.Sellers.Add(seller);
                     this.SaveChanges();
                 }
+
+                // Creer 3 ordinateurs
                 for (int i = 1; i < 4; i++)
                 {
                     Computer computer = new Computer();
@@ -58,6 +64,8 @@ namespace ClassLibraryDelta.Database
                     this.Products.Add(computer);
                     this.SaveChanges();
                 }
+
+                // Creer 3 teles
                 for (int i = 1; i < 4; i++)
                 {
                     TV tv = new TV();
@@ -69,6 +77,8 @@ namespace ClassLibraryDelta.Database
                     this.Products.Add(tv);
                     this.SaveChanges();
                 }
+
+                // Creer 3 tablettes
                 for (int i = 1; i < 4; i++)
                 {
                     Tablet tablet = new Tablet();
@@ -80,6 +90,8 @@ namespace ClassLibraryDelta.Database
                     this.Products.Add(tablet);
                     this.SaveChanges();
                 }
+
+                // Creer 3 telephones
                 for (int i = 1; i < 4; i++)
                 {
                     Phone phone = new Phone();
@@ -89,6 +101,16 @@ namespace ClassLibraryDelta.Database
                     phone.UnitPriceHT = 200 * i;
                     phone.VatRate = 0.2f;
                     this.Products.Add(phone);
+                    this.SaveChanges();
+                }
+
+                // Creer 2 commandes
+                for (int i = 1; i < 3; i++)
+                {
+                    Command c = new Command(this.Clients.Find(i), this.Sellers.Find(i));
+                    c.DateCommand = DateTime.Today;
+                    this.Products.Find(i).AddToOrder(c);
+                    this.Commands.Add(c);
                     this.SaveChanges();
                 }
             }
