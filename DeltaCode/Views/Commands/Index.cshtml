@@ -20,20 +20,32 @@
             <th>
                 @Html.DisplayNameFor(model => model.DateCommand)
             </th>
+            <th>
+                Seller
+            </th>
+            <th>
+                Client
+            </th>
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DateCommand)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.CommandID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.CommandID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.CommandID })
-            </td>
-        </tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCommand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seller.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.LastName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.CommandID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.CommandID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.CommandID })
+        </td>
+    </tr>
     }
     
     </table>

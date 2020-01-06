@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using ClassLibraryDelta.Database;
@@ -17,20 +18,22 @@ namespace DeltaCode.Controllers
 
         // GET: Commands
         [Authorize(Roles = "User, Admin")]
-        public ActionResult Index()
+        public async Task<ActionResult> Index()
         {
-            return View(db.Commands.ToList());
+            return View(await db.Commands.Include(x => x.Seller).Include(x => x.Client).ToListAsync());
         }
 
         // GET: Commands/Details/5
         [Authorize(Roles = "User, Admin")]
-        public ActionResult Details(int? id)
+        public async Task<ActionResult> Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Command command = db.Commands.Find(id);
+            Command command = await db.Commands.Include(x => x.Seller).Include(x => x.Client).FirstOrDefaultAsync(x => x.CommandID == id);
+            ViewBag.SellerName = String.Format(command.Seller.FirstName + ' ' + command.Seller.LastName);
+            ViewBag.ClientName = String.Format(command.Client.FirstName + ' ' + command.Client.LastName);
             if (command == null)
             {
                 return HttpNotFound();

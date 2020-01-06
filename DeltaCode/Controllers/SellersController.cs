@@ -83,7 +83,6 @@ namespace DeltaCode.Controllers
             return View(seller);
         }
 
-
         // GET: Sellers/Edit/5
         [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
@@ -110,6 +109,29 @@ namespace DeltaCode.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                // Modification du vendeur dans le SecurityContext du projet ASP.NET
+                using (var secudb = new SecurityDbContext())
+                {
+                    UserManager<MyIdentityUser> userManager = new MyIdentityUserManager(new UserStore<MyIdentityUser>(secudb));
+                    var sellerToRemove = userManager.FindByEmail(seller.Email);
+                    var res = userManager.Delete(sellerToRemove);
+                    if (!res.Succeeded)
+                    {
+                        throw new System.Exception("database remove fail");
+                    }
+
+                    IdentityRole userRole = RoleUtils.CreateOrGetRole("User");
+                    MyIdentityUser sellerUser = new MyIdentityUser() { UserName = seller.Login, Email = seller.Email, Login = seller.Login }; ;
+                    var result = userManager.Create(sellerUser, seller.Password);
+                    if (!result.Succeeded)
+                    {
+                        throw new System.Exception("database insert fail");
+                    }
+                    RoleUtils.AssignRoleToUser(userRole, sellerUser);
+                }
+
+                // Modification du vendeur dans le ProductContext du projet librairie
                 db.Entry(seller).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
