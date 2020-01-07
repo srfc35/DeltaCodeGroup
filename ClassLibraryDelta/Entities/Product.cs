@@ -10,7 +10,7 @@ namespace ClassLibraryDelta.Entities
 {
     public class Product
     {
-        #region Attribut
+        #region Attributes
         private int productID;
         private string nameProduct;
         private string brand;
@@ -33,12 +33,14 @@ namespace ClassLibraryDelta.Entities
             set { productID = value; }
         }
 
+        [StringLength(30)]
         public string NameProduct
         {
             get { return nameProduct; }
             set { nameProduct = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string Brand
         {
@@ -53,6 +55,7 @@ namespace ClassLibraryDelta.Entities
             set { size = value; }
         }
 
+        [Range(0d, double.MaxValue)]
         [Required]
         public float UnitPriceHT
         {
@@ -60,6 +63,7 @@ namespace ClassLibraryDelta.Entities
             set { unitPriceHT = value; }
         }
 
+        [Range(0d, 1d)]
         [Required]
         public float VatRate
         {
@@ -73,12 +77,15 @@ namespace ClassLibraryDelta.Entities
             set { weight = value; }
         }
 
+        [Range(0d, 1d)]
+        [Required]
         public float Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
+        [StringLength(30)]
         public string Color
         {
             get { return color; }
