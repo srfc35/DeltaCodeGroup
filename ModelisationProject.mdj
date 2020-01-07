@@ -3791,9 +3791,9 @@
 										"$ref": "AAAAAAFuz+Rb9YQjIgs="
 									},
 									"font": "Arial;13;0",
-									"left": 362,
+									"left": 361,
 									"top": 153,
-									"width": 19.5126953125,
+									"width": 20,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 25,
@@ -5407,7 +5407,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuz+DSKH+Fdhs="
 							},
-							"name": "FactureID"
+							"name": "FactureID",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5415,7 +5416,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuz+DSKH+Fdhs="
 							},
-							"name": "FactureDate"
+							"name": "FactureDate",
+							"type": ""
 						},
 						{
 							"_type": "UMLAttribute",
@@ -5423,7 +5425,8 @@
 							"_parent": {
 								"$ref": "AAAAAAFuz+DSKH+Fdhs="
 							},
-							"name": "ClientID"
+							"name": "ClientID",
+							"type": ""
 						}
 					]
 				}
