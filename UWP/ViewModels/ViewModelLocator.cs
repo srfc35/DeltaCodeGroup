@@ -16,22 +16,20 @@ namespace UWP.ViewModels
         /// </summary>
         public ViewModelLocator()
         {
-            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            //Register your services used here
+            SimpleIoc.Default.Register<INavigationService>(() =>
+            {
+                var navigationService = new NavigationService();
+                navigationService.Configure("ProductPage", typeof(ProductPage));
+                return navigationService;
+            });
+            
             SimpleIoc.Default.Register<INavigationService, NavigationService>();
-            // Enregistrer les ViewModels ici, comme dans les exemples ci-dessous:
-            //SimpleIoc.Default.Register<BlankPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            SimpleIoc.Default.Register<ProductPageViewModel>();
         }
 
-        // Mettre nos ViewModel ici, comme dans les exemples ci-dessous:
-       /* public BlankPageViewModel BlankPageInstance
+        public ProductPageViewModel ProductPageInstance
         {
-            get { return ServiceLocator.Current.GetInstance<BlankPageViewModel>(); }
+            get { return ServiceLocator.Current.GetInstance<ProductPageViewModel>(); }
         }
-        public OtherPageViewModel MyProperty
-        {
-            get { return ServiceLocator.Current.GetInstance<OtherPageViewModel>(); }
-        }*/
     }
 }
