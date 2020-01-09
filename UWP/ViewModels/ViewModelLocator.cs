@@ -16,6 +16,8 @@ namespace UWP.ViewModels
         /// </summary>
         public ViewModelLocator()
         {
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
@@ -23,7 +25,6 @@ namespace UWP.ViewModels
                 return navigationService;
             });
             
-            SimpleIoc.Default.Register<INavigationService, NavigationService>();
             SimpleIoc.Default.Register<ProductPageViewModel>();
         }
 

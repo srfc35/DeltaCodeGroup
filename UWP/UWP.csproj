@@ -121,8 +121,12 @@
     </Compile>
     <Compile Include="Entities\Client.cs" />
     <Compile Include="Entities\Command.cs" />
+    <Compile Include="Entities\Computer.cs" />
     <Compile Include="Entities\Person.cs" />
+    <Compile Include="Entities\Phone.cs" />
     <Compile Include="Entities\Seller.cs" />
+    <Compile Include="Entities\Tablet.cs" />
+    <Compile Include="Entities\TV.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
