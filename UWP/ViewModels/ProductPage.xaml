@@ -11,6 +11,17 @@
     >
 
     <Grid>
-
+        <StackPanel>
+            <TextBox x:Name="textBoxNameProduct" Text="{Binding Product.NameProduct, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxBrand" Text="{Binding Product.Brand, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxSize" Text="{Binding Product.Size, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxUnitPriceHT" Text="{Binding Product.UnitPriceHT, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxVatRate" Text="{Binding Product.VatRate, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxDiscount" Text="{Binding Product.Discount, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxWeight" Text="{Binding Product.Weight, Mode=TwoWay}"/>
+            <TextBox x:Name="textBoxColor" Text="{Binding Product.Color, Mode=TwoWay}"/>
+            <!-- <TextBox x:Name="textBoxOrder" Text="{Binding Product.Order, Mode=TwoWay}"/> -->
+            <Button x:Name="productButton" Command="{Binding ProductButtonClick}" Content="{Binding ButtonContent, Mode=OneTime}"/>
+        </StackPanel>
     </Grid>
 </Page>

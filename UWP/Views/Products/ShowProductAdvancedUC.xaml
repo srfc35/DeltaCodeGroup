@@ -2,27 +2,65 @@
     x:Class="UWP.Views.Products.ShowProductAdvancedUC"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:UWP"
+    xmlns:local="using:UWP.Views.Products"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
+    <!-- A METTRE CI-DESSUS QUAND VIEW/COMMANDS EXISTERA : xmlns:orderUc="using:UWP.Views.Commands"-->
 
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="{x:Bind Product.NameProduct, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Brand, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Size, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.UnitPriceHT, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.VatRate, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Discount, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Weight, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Color, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Order.CommandID, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Order.DateCommand, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Order.Client.LastName, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.Order.Seller.LastName, Mode=TwoWay}"></TextBlock>
-        </StackPanel>
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition MaxWidth="20"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="textBlockProductName" Text="Product Name" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputProductName" Text="{Binding NameProduct, Mode=TwoWay}"  Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBlock>
+
+        <TextBlock x:Name="textBlockBrand" Text="Brand" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputBrand" Text="{Binding Brand, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockSize" Text="Size" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputSize" Text="{Binding Size, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockUnitPriceHT" Text="Unit Price HT" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputUnitPriceHT" Text="{Binding UnitPriceHT, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockVatRate" Text="VAT Rate" Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputVatRate" Text="{Binding VatRate, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockDiscount" Text="Discount" Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputDiscount" Text="{Binding Discount, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockWeight" Text="Weight" Grid.Column="0" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputWeight" Text="{Binding Weight, Mode=TwoWay}"></TextBlock>
+
+        <TextBlock x:Name="textBlockColor" Text="Color" Grid.Column="0" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputColor" Text="{Binding Color, Mode=TwoWay}"></TextBlock>
+
+        <!-- A METTRE QUAND VIEW/COMMANDS EXISTERA-->
+        <!-- <orderUc:ShowOrderUC x:Name="orderUc" x:FieldModifier="public" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="3"/> -->
+
+        <!--
+        <TextBlock x:Name="textBlockOrder" Text="Order" Grid.Column="0" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <TextBlock x:Name="inputOrder" Text="{Binding Order.CommandID, Mode=TwoWay}"></TextBlock>
+        <TextBlock Text="{Binding Order.DateCommand, Mode=TwoWay}"></TextBlock>
+        <TextBlock Text="{Binding Order.Client.LastName, Mode=TwoWay}"></TextBlock>
+        <TextBlock Text="{Binding Order.Seller.LastName, Mode=TwoWay}"></TextBlock>
+        -->
     </Grid>
 </UserControl>

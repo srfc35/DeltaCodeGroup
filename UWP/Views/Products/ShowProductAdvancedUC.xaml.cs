@@ -20,20 +20,16 @@ namespace UWP.Views.Products
 {
     public sealed partial class ShowProductAdvancedUC : UserControl
     {
-        public Product Product;
+        public Product Product { get; set; }
         public ShowProductAdvancedUC()
         {
             this.InitializeComponent();
-            this.Product = new Product(10, "Ordi dernier cri", "Dell", 16, 800, 0.2f, 0, 2.5f, "Black");
-            Client c = new Client();
-            c.LastName = "UnClient";
-            Seller s = new Seller();
-            s.LastName = "UnVendeur";
-            Command o = new Command(c, s);
-            o.DateCommand = DateTime.Today.Date;
-            o.CommandID = 10;
-            this.Product.Order = o;
-            this.DataContext = this;
+            this.Product = new Product();
+            this.DataContext = this.Product;
+            if (this.Product.Order != null)
+            {
+                //this.orderUc.Role.CopyFrom(this.Product.Order);
+            }
         }
     }
 }
