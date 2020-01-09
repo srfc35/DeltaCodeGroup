@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UWP.Entities;
 
 namespace ClassLibraryDelta.Entities
 {
-    public class Product
+    public class Product : EntityBase
     {
         #region Attributes
         private int productID;
@@ -228,6 +229,38 @@ namespace ClassLibraryDelta.Entities
         public void RemoveFromOrder()
         {
             Order = null;
+        }
+
+        public override object Copy()
+        {
+            Product product = new Product();
+            product.ProductID = this.ProductID;
+            product.NameProduct = this.NameProduct;
+            product.Brand = this.Brand;
+            product.Size = this.Size;
+            product.UnitPriceHT = this.UnitPriceHT;
+            product.VatRate = this.VatRate;
+            product.Discount = this.Discount;
+            product.Weight = this.Weight;
+            product.Color = this.Color;
+            product.Order = this.Order;
+
+            return product;
+        }
+
+        public override void CopyFrom(object obj)
+        {
+            Product product = obj as Product;
+            this.ProductID = product.ProductID;
+            this.NameProduct = product.NameProduct;
+            this.Brand = product.Brand;
+            this.Size = product.Size;
+            this.UnitPriceHT = product.UnitPriceHT;
+            this.VatRate = product.VatRate;
+            this.Discount = product.Discount;
+            this.Weight = product.Weight;
+            this.Color = product.Color;
+            this.Order = product.Order;
         }
 
         #endregion
