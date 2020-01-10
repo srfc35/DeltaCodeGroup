@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -85,6 +86,7 @@ namespace UWP.Entities
             set { color = value; }
         }
 
+        [ForeignKey(typeof(Command))]
         public Command Order
         {
             get { return order; }
