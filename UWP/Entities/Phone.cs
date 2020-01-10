@@ -1,6 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +15,7 @@ namespace UWP.Entities
 
         #region Properties
 
-        [StringLength(30)]
-        [Required]
+        [NotNull]
         public string Os
         {
             get { return os; }

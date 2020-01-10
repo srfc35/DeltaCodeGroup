@@ -1,7 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,46 +25,41 @@ namespace UWP.Entities
 
         #region Properties
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [PrimaryKey, AutoIncrement]
         public int ProductID
         {
             get { return productID; }
             set { productID = value; }
         }
 
-        [StringLength(30)]
         public string NameProduct
         {
             get { return nameProduct; }
             set { nameProduct = value; }
         }
 
-        [StringLength(30)]
-        [Required]
+        [NotNull]
         public string Brand
         {
             get { return brand; }
             set { brand = value; }
         }
 
-        [Required]
+        [NotNull]
         public int Size
         {
             get { return size; }
             set { size = value; }
         }
 
-        [Range(0d, double.MaxValue)]
-        [Required]
+        [NotNull]
         public float UnitPriceHT
         {
             get { return unitPriceHT; }
             set { unitPriceHT = value; }
         }
 
-        [Range(0d, 1d)]
-        [Required]
+        [NotNull]
         public float VatRate
         {
             get { return vatRate; }
@@ -78,15 +72,13 @@ namespace UWP.Entities
             set { weight = value; }
         }
 
-        [Range(0d, 1d)]
-        [Required]
+        [NotNull]
         public float Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
-        [StringLength(30)]
         public string Color
         {
             get { return color; }

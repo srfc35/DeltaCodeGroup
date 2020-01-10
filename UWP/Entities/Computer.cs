@@ -1,9 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace UWP.Entities
 {
@@ -14,7 +14,7 @@ namespace UWP.Entities
         #endregion
 
         #region Properties
-        [Required]
+        [NotNull]
         public int RamMemory
         {
             get { return ramMemory; }
