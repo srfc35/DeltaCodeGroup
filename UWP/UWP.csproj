@@ -136,6 +136,7 @@
       <DependentUpon>ProductDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DatabaseService.cs" />
     <Compile Include="Views\ProductControlBase.cs" />
     <Compile Include="Views\Products\ShowProductAdvancedUC.xaml.cs">
       <DependentUpon>ShowProductAdvancedUC.xaml</DependentUpon>
