@@ -1,4 +1,4 @@
-﻿using ClassLibraryDelta.Entities;
+﻿using UWP.Entities;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;

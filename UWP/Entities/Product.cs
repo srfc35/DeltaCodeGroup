@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UWP.Entities;
 
-namespace ClassLibraryDelta.Entities
+namespace UWP.Entities
 {
     public class Product : EntityBase
     {

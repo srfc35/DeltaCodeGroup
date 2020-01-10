@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibraryDelta.Entities
+namespace UWP.Entities
 {
     public class Phone : Product
     {

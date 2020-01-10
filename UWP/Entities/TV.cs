@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
-namespace ClassLibraryDelta.Entities
+namespace UWP.Entities
 {
     public class TV : Product
     {
