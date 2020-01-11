@@ -92,7 +92,7 @@ namespace DeltaCode.Controllers
         {
             if (ModelState.IsValid)
             {
-                product.VatRate = 0.2f
+                product.VatRate = 0.2f;
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
