@@ -176,6 +176,7 @@
     <Compile Include="Controllers\CommandsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\PurchaseRequestsController.cs" />
     <Compile Include="Controllers\Security\AccountController.cs" />
     <Compile Include="Controllers\Security\ManageController.cs" />
     <Compile Include="Controllers\SellersController.cs" />
@@ -261,6 +262,12 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\PurchaseRequests\Create.cshtml" />
+    <Content Include="Views\PurchaseRequests\Delete.cshtml" />
+    <Content Include="Views\PurchaseRequests\Details.cshtml" />
+    <Content Include="Views\PurchaseRequests\Edit.cshtml" />
+    <Content Include="Views\PurchaseRequests\Index.cshtml" />
+    <Content Include="Views\PurchaseRequests\Validate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

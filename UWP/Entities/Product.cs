@@ -21,6 +21,7 @@ namespace UWP.Entities
         private float discount;
         private float weight;
         private string color;
+        private int status; // 0: en stock, 1: demande d'achat, 2: demande d'achat rejetee, 3: vendu ...
         private Command order;
         #endregion
 
@@ -86,6 +87,13 @@ namespace UWP.Entities
             set { color = value; }
         }
 
+        [NotNull]
+        public int Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
         [ForeignKey(typeof(Command))]
         public Command Order
         {
@@ -118,7 +126,7 @@ namespace UWP.Entities
                 this.discount = discount;
                 this.weight = weight;
                 this.color = color;
-
+                this.status = 0; //0 : "en stock"
             }
 
         }
