@@ -28,8 +28,8 @@ namespace UWP.Entities
         #region Constructor
 
         public TV(int productID, string nameProduct, string brand, int size,
-            float unitPriceHT, float vatRate, float discount, float weight, string color, float resolution) : base(productID, nameProduct, brand, size,
-                          unitPriceHT, vatRate, discount, weight, color)
+            float unitPriceHT, float discount, float weight, string color, float resolution) : base(productID, nameProduct, brand, size,
+                          unitPriceHT, discount, weight, color)
         {
             if (resolution > 0)
             {

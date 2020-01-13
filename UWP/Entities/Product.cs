@@ -129,9 +129,9 @@ namespace UWP.Entities
         }
 
         public Product(int productID, string nameProduct, string brand, int size,
-            float unitPriceHT, float vatRate, float discount, float weight, string color)
+            float unitPriceHT, float discount, float weight, string color)
         {
-            if (brand.Equals("") || size <= 0 || unitPriceHT < 0 || vatRate < 0 || discount < 0 || weight < 0)
+            if (brand.Equals("") || size <= 0 || unitPriceHT < 0 || discount < 0 || weight < 0)
             {
                 throw new Exception("Données incorrectes");
             }

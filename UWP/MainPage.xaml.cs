@@ -52,7 +52,7 @@ namespace UWP
         public MainPage()
         {
             this.InitializeComponent();
-            this.Product = new Product(10, this.NameProduct, "Dell", 16, 800, 0.2f, 0, 2.5f, "Black");
+            //this.Product = new Product(10, this.NameProduct, "Dell", 16, 800, 0, 2.5f, "Black");
             this.DataContext = this;
         }
     }
