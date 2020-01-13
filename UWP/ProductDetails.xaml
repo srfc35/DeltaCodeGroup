@@ -1,0 +1,61 @@
+﻿<Page
+    x:Class="UWP.ProductDetails"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <x:String x:Key="greeting">Hello world</x:String>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition MaxWidth="20"></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition MaxHeight="100"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.ColumnSpan="5" FontSize="18">PRODUCT DETAILS</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1">BRAND</TextBlock>
+        <TextBlock Grid.Row="3" Grid.Column="1">SIZE</TextBlock>
+        <TextBlock Grid.Row="5" Grid.Column="1">PRICE</TextBlock>
+        <TextBlock Grid.Row="7" Grid.Column="1">COLOR</TextBlock>
+        <TextBlock Grid.Row="9" Grid.Column="1">RESOLUTION</TextBlock>
+        <TextBlock Grid.Row="11" Grid.Column="1">OS</TextBlock>
+
+        <ComboBox Grid.Row="1" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+        <ComboBox Grid.Row="3" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+        <ComboBox Grid.Row="5" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+        <ComboBox Grid.Row="7" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+        <ComboBox Grid.Row="9" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+        <ComboBox Grid.Row="11" Grid.Column="3" ItemsSource="{x:Bind Path=marques}" Width="120" />
+
+
+    </Grid>
+</Page>

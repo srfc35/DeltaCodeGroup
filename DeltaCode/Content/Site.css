@@ -1,13 +1,10 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 80px;
     padding-bottom: 20px;
 }
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
+
 
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
@@ -21,4 +18,41 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+.footer{
+    
+    width:100%;
+    margin:0px;
+    margin:auto;
+    padding:0px;
+    height:50px;
+    color:#ffffff;
+}
+.My-center {
+    padding-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #558c2f;
+    padding-bottom:10px;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+.display{
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+section{
+    margin-left:auto;
+    margin-right:auto;
+}
+.navbar-collapse {
+    text-align: justify;
+    padding-left: 0px;
+    margin-left: -370px;
+}
+.h2{
+   
+    text-align:center;
+    color:white;
 }
