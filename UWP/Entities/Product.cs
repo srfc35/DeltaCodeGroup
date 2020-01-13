@@ -193,18 +193,6 @@ namespace UWP.Entities
             }
         }
 
-        public static void UpdateVATRate(float newVATRate)
-        {
-            if (newVATRate > 0)
-            {
-                vatRate = newVATRate;
-            }
-            else
-            {
-                throw new Exception("TVA invalide");
-            }
-        }
-
         public void UpdateDiscount(float discount)
         {
             if (discount > 0)
@@ -259,7 +247,6 @@ namespace UWP.Entities
             product.Brand = this.Brand;
             product.Size = this.Size;
             product.UnitPriceHT = this.UnitPriceHT;
-            product.VatRate = this.VatRate;
             product.Discount = this.Discount;
             product.Weight = this.Weight;
             product.Color = this.Color;
@@ -276,7 +263,6 @@ namespace UWP.Entities
             this.Brand = product.Brand;
             this.Size = product.Size;
             this.UnitPriceHT = product.UnitPriceHT;
-            this.VatRate = product.VatRate;
             this.Discount = product.Discount;
             this.Weight = product.Weight;
             this.Color = product.Color;

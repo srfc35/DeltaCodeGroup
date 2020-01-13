@@ -34,9 +34,29 @@ namespace UWP.Services
             get { return this.sqliteConnection.Table<Tablet>(); }
         }
 
+        public TableQuery<TV> TVs
+        {
+            get { return this.sqliteConnection.Table<TV>(); }
+        }
+
         public List<Computer> ComputersEager
         {
             get { return this.sqliteConnection.GetAllWithChildren<Computer>(); }
+        }
+
+        public List<Phone> PhonesEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<Phone>(); }
+        }
+
+        public List<Tablet> TabletsEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<Tablet>(); }
+        }
+
+        public List<TV> TVsEager
+        {
+            get { return this.sqliteConnection.GetAllWithChildren<TV>(); }
         }
 
         public int Save(object item)
@@ -45,6 +65,24 @@ namespace UWP.Services
         }
 
         public void SaveWithChildren(Computer item)
+        {
+            this.Save(item.Order);
+            this.sqliteConnection.InsertOrReplaceWithChildren(item);
+        }
+
+        public void SaveWithChildren(Phone item)
+        {
+            this.Save(item.Order);
+            this.sqliteConnection.InsertOrReplaceWithChildren(item);
+        }
+
+        public void SaveWithChildren(Tablet item)
+        {
+            this.Save(item.Order);
+            this.sqliteConnection.InsertOrReplaceWithChildren(item);
+        }
+
+        public void SaveWithChildren(TV item)
         {
             this.Save(item.Order);
             this.sqliteConnection.InsertOrReplaceWithChildren(item);
@@ -59,6 +97,9 @@ namespace UWP.Services
                         CreationCollisionOption.OpenIfExists);
                 this.sqliteConnection = new SQLiteConnection(myDb.Path);
                 this.sqliteConnection.CreateTable<Computer>();
+                this.sqliteConnection.CreateTable<Phone>();
+                this.sqliteConnection.CreateTable<Tablet>();
+                this.sqliteConnection.CreateTable<TV>();
             });
         }
     }
