@@ -4,8 +4,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using UWP.Entities;
+using Windows.ApplicationModel.Core;
 using Windows.Storage;
 
 namespace UWP.Services
@@ -90,17 +92,37 @@ namespace UWP.Services
 
         public DatabaseService()
         {
+            AutoResetEvent eRF = new AutoResetEvent(false);
+           // AutoResetEvent eR1 = new AutoResetEvent(false);
             Task.Factory.StartNew(async () =>
             {
                 StorageFolder localFolder = ApplicationData.Current.LocalFolder;
                 StorageFile myDb = await localFolder.CreateFileAsync("mydb.sqlite",
                         CreationCollisionOption.OpenIfExists);
                 this.sqliteConnection = new SQLiteConnection(myDb.Path);
+                while (this.sqliteConnection == null)
+                {
+
+                }
+            }).ContinueWith((s)=>
+            {
+                this.sqliteConnection.CreateTable<Client>();
+                this.sqliteConnection.CreateTable<Seller>();
+                this.sqliteConnection.CreateTable<Command>();
                 this.sqliteConnection.CreateTable<Computer>();
                 this.sqliteConnection.CreateTable<Phone>();
                 this.sqliteConnection.CreateTable<Tablet>();
                 this.sqliteConnection.CreateTable<TV>();
+                eRF.Set();
             });
+            eRF.WaitOne();
+//            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
+//Windows.UI.Core.CoreDispatcherPriority.Normal,
+//() =>
+//{
+
+
+//});
         }
     }
 }

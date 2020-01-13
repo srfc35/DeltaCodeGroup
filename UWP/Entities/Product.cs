@@ -110,7 +110,7 @@ namespace UWP.Entities
             }
         }
 
-        [ForeignKey(typeof(Command))]
+        [ManyToOne]
         public Command Order
         {
             get { return order; }
@@ -118,6 +118,16 @@ namespace UWP.Entities
                 OnPropertyChanged("Order");
             }
         }
+
+        private int commandId;
+
+        [ForeignKey(typeof(Command))]
+        public int CommandId
+        {
+            get { return commandId; }
+            set { commandId = value; }
+        }
+
 
         #endregion
 

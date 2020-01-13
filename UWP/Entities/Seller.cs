@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -44,7 +45,7 @@ namespace UWP.Entities
             set { password = value; }
         }
 
-        [Required]
+        [OneToMany]
         public List<Command> ListCommand
         {
             get { return listcommand; }
