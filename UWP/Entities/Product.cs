@@ -37,32 +37,40 @@ namespace UWP.Entities
         public string NameProduct
         {
             get { return nameProduct; }
-            set { nameProduct = value; }
+            set { nameProduct = value;
+                OnPropertyChanged("NameProduct");
+            }
         }
 
         [NotNull]
         public string Brand
         {
             get { return brand; }
-            set { brand = value; }
+            set { brand = value;
+                OnPropertyChanged("Brand");
+            }
         }
 
         [NotNull]
         public int Size
         {
             get { return size; }
-            set { size = value; }
+            set { size = value;
+                OnPropertyChanged("Size");
+            }
         }
 
         [NotNull]
         public float UnitPriceHT
         {
             get { return unitPriceHT; }
-            set { unitPriceHT = value; }
+            set { unitPriceHT = value;
+                OnPropertyChanged("UnitPriceHT");
+            }
         }
 
         [NotNull]
-        public float VatRate
+        public static float VatRate
         {
             get { return vatRate; }
             set { vatRate = value; }
@@ -71,34 +79,44 @@ namespace UWP.Entities
         public float Weight
         {
             get { return weight; }
-            set { weight = value; }
+            set { weight = value;
+                OnPropertyChanged("Weight");
+            }
         }
 
         [NotNull]
         public float Discount
         {
             get { return discount; }
-            set { discount = value; }
+            set { discount = value;
+                OnPropertyChanged("Discount");
+            }
         }
 
         public string Color
         {
             get { return color; }
-            set { color = value; }
+            set { color = value;
+                OnPropertyChanged("Color");
+            }
         }
 
         [NotNull]
         public int Status
         {
             get { return status; }
-            set { status = value; }
+            set { status = value;
+                OnPropertyChanged("Status");
+            }
         }
 
         [ForeignKey(typeof(Command))]
         public Command Order
         {
             get { return order; }
-            set { order = value; }
+            set { order = value;
+                OnPropertyChanged("Order");
+            }
         }
 
         #endregion

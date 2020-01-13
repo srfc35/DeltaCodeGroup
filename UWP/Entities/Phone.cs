@@ -19,7 +19,9 @@ namespace UWP.Entities
         public string Os
         {
             get { return os; }
-            set { os = value; }
+            set { os = value;
+                OnPropertyChanged("Os");
+            }
         }
         #endregion
 

@@ -19,7 +19,10 @@ namespace UWP.Entities
         public float ScreenSize
         {
             get { return screenSize; }
-            set { screenSize = value; }
+            set {
+                screenSize = value;
+                OnPropertyChanged("ScreenSize");
+            }
         }
         #endregion
 

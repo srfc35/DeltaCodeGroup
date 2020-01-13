@@ -18,7 +18,9 @@ namespace UWP.Entities
         public int RamMemory
         {
             get { return ramMemory; }
-            set { ramMemory = value; }
+            set { ramMemory = value;
+                OnPropertyChanged("RamMemory");
+            }
         }
         #endregion
 

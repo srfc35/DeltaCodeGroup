@@ -19,7 +19,9 @@ namespace UWP.Entities
         public float Resolution
         {
             get { return resolution; }
-            set { resolution = value; }
+            set { resolution = value;
+                OnPropertyChanged("Resolution");
+            }
         }
         #endregion
 
