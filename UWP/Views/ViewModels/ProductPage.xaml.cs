@@ -12,21 +12,19 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using UWP.Entities;
 
-// Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page https://go.microsoft.com/fwlink/?LinkId=234236
+// Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UWP.Views.Products
+namespace UWP.ViewModels
 {
-    public sealed partial class ShowProductUC : UserControl
+    /// <summary>
+    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
+    /// </summary>
+    public sealed partial class ProductPage : Page
     {
-        public Product Product;
-
-        public ShowProductUC()
+        public ProductPage()
         {
             this.InitializeComponent();
-            //this.Product = new Product(10, "Ordi dernier cri", "Dell", 16, 800, 0, 2.5f, "Black");
-            this.DataContext = this;
         }
     }
 }

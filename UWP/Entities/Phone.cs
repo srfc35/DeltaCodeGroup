@@ -19,15 +19,17 @@ namespace UWP.Entities
         public string Os
         {
             get { return os; }
-            set { os = value; }
+            set { os = value;
+                OnPropertyChanged("Os");
+            }
         }
         #endregion
 
         #region Constructor
         public Phone(int productID, string nameProduct, string brand, int size,
-           float unitPriceHT, float vatRate, float discount, float weight,
+           float unitPriceHT, float discount, float weight,
            string color, string os) : base(productID, nameProduct, brand, size,
-                         unitPriceHT, vatRate, discount, weight, color)
+                         unitPriceHT, discount, weight, color)
         {
             if (!os.Equals(""))
             {

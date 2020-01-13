@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using UWP.Entities;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -12,21 +14,21 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using UWP.Entities;
 
 // Pour en savoir plus sur le modèle d'élément Contrôle utilisateur, consultez la page https://go.microsoft.com/fwlink/?LinkId=234236
 
 namespace UWP.Views.Products
 {
-    public sealed partial class ShowProductUC : UserControl
+    public sealed partial class ListProductUC : UserControl
     {
-        public Product Product;
 
-        public ShowProductUC()
+        public ObservableCollection<Product> ProductList { get; set; }
+
+        public ListProductUC()
         {
             this.InitializeComponent();
-            //this.Product = new Product(10, "Ordi dernier cri", "Dell", 16, 800, 0, 2.5f, "Black");
-            this.DataContext = this;
+            this.ProductList = new ObservableCollection<Product>();
+            this.DataContext = ProductList;
         }
     }
 }

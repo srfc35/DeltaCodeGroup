@@ -37,32 +37,40 @@ namespace UWP.Entities
         public string NameProduct
         {
             get { return nameProduct; }
-            set { nameProduct = value; }
+            set { nameProduct = value;
+                OnPropertyChanged("NameProduct");
+            }
         }
 
         [NotNull]
         public string Brand
         {
             get { return brand; }
-            set { brand = value; }
+            set { brand = value;
+                OnPropertyChanged("Brand");
+            }
         }
 
         [NotNull]
         public int Size
         {
             get { return size; }
-            set { size = value; }
+            set { size = value;
+                OnPropertyChanged("Size");
+            }
         }
 
         [NotNull]
         public float UnitPriceHT
         {
             get { return unitPriceHT; }
-            set { unitPriceHT = value; }
+            set { unitPriceHT = value;
+                OnPropertyChanged("UnitPriceHT");
+            }
         }
 
         [NotNull]
-        public float VatRate
+        public static float VatRate
         {
             get { return vatRate; }
             set { vatRate = value; }
@@ -71,35 +79,55 @@ namespace UWP.Entities
         public float Weight
         {
             get { return weight; }
-            set { weight = value; }
+            set { weight = value;
+                OnPropertyChanged("Weight");
+            }
         }
 
         [NotNull]
         public float Discount
         {
             get { return discount; }
-            set { discount = value; }
+            set { discount = value;
+                OnPropertyChanged("Discount");
+            }
         }
 
         public string Color
         {
             get { return color; }
-            set { color = value; }
+            set { color = value;
+                OnPropertyChanged("Color");
+            }
         }
 
         [NotNull]
         public int Status
         {
             get { return status; }
-            set { status = value; }
+            set { status = value;
+                OnPropertyChanged("Status");
+            }
         }
 
-        [ForeignKey(typeof(Command))]
+        [ManyToOne]
         public Command Order
         {
             get { return order; }
-            set { order = value; }
+            set { order = value;
+                OnPropertyChanged("Order");
+            }
         }
+
+        private int commandId;
+
+        [ForeignKey(typeof(Command))]
+        public int CommandId
+        {
+            get { return commandId; }
+            set { commandId = value; }
+        }
+
 
         #endregion
 
@@ -111,9 +139,9 @@ namespace UWP.Entities
         }
 
         public Product(int productID, string nameProduct, string brand, int size,
-            float unitPriceHT, float vatRate, float discount, float weight, string color)
+            float unitPriceHT, float discount, float weight, string color)
         {
-            if (brand.Equals("") || size <= 0 || unitPriceHT < 0 || vatRate < 0 || discount < 0 || weight < 0)
+            if (brand.Equals("") || size <= 0 || unitPriceHT < 0 || discount < 0 || weight < 0)
             {
                 throw new Exception("Données incorrectes");
             }
@@ -175,18 +203,6 @@ namespace UWP.Entities
             }
         }
 
-        public static void UpdateVATRate(float newVATRate)
-        {
-            if (newVATRate > 0)
-            {
-                vatRate = newVATRate;
-            }
-            else
-            {
-                throw new Exception("TVA invalide");
-            }
-        }
-
         public void UpdateDiscount(float discount)
         {
             if (discount > 0)
@@ -241,7 +257,6 @@ namespace UWP.Entities
             product.Brand = this.Brand;
             product.Size = this.Size;
             product.UnitPriceHT = this.UnitPriceHT;
-            product.VatRate = this.VatRate;
             product.Discount = this.Discount;
             product.Weight = this.Weight;
             product.Color = this.Color;
@@ -258,7 +273,6 @@ namespace UWP.Entities
             this.Brand = product.Brand;
             this.Size = product.Size;
             this.UnitPriceHT = product.UnitPriceHT;
-            this.VatRate = product.VatRate;
             this.Discount = product.Discount;
             this.Weight = product.Weight;
             this.Color = product.Color;
