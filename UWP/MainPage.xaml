@@ -14,7 +14,6 @@
             <TextBlock Text="{x:Bind Product.Brand, Mode=TwoWay}"></TextBlock>
             <TextBlock Text="{x:Bind Product.Size, Mode=TwoWay}"></TextBlock>
             <TextBlock Text="{x:Bind Product.UnitPriceHT, Mode=TwoWay}"></TextBlock>
-            <TextBlock Text="{x:Bind Product.VatRate, Mode=TwoWay}"></TextBlock>
             <TextBlock Text="{x:Bind Product.Discount, Mode=TwoWay}"></TextBlock>
             <TextBlock Text="{x:Bind Product.Weight, Mode=TwoWay}"></TextBlock>
             <TextBlock Text="{x:Bind Product.Color, Mode=TwoWay}"></TextBlock>

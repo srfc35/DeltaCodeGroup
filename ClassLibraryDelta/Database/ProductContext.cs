@@ -61,6 +61,7 @@ namespace ClassLibraryDelta.Database
                     computer.RamMemory = 4 + i;
                     computer.UnitPriceHT = 100 * i;
                     computer.VatRate = 0.2f;
+                    computer.Status = 0; //0: en stock
                     this.Products.Add(computer);
                     this.SaveChanges();
                 }
@@ -74,6 +75,7 @@ namespace ClassLibraryDelta.Database
                     tv.Resolution = 120;
                     tv.UnitPriceHT = 150 * i;
                     tv.VatRate = 0.2f;
+                    tv.Status = 0; //0: en stock
                     this.Products.Add(tv);
                     this.SaveChanges();
                 }
@@ -87,6 +89,7 @@ namespace ClassLibraryDelta.Database
                     tablet.ScreenSize = 7 + i;
                     tablet.UnitPriceHT = 100 * i;
                     tablet.VatRate = 0.2f;
+                    tablet.Status = 0; //0: en stock
                     this.Products.Add(tablet);
                     this.SaveChanges();
                 }
@@ -100,6 +103,7 @@ namespace ClassLibraryDelta.Database
                     phone.Os = "IOS";
                     phone.UnitPriceHT = 200 * i;
                     phone.VatRate = 0.2f;
+                    phone.Status = 0; //0: en stock
                     this.Products.Add(phone);
                     this.SaveChanges();
                 }

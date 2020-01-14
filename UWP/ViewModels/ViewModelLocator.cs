@@ -5,40 +5,46 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using UWP.Services;
 
 namespace UWP.ViewModels
 {
     public class ViewModelLocator
     {
+        public enum Pages
+        {
+            ProductPage//,
+                       //Autres pages
+        }
+
         /// <summary>
         /// Initializes a new instance of the ViewModelLocator class.
         /// </summary>
         public ViewModelLocator()
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
-            //Register your services used here
+
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                // Ajouter nos pages comme dans les exemples ci-dessous:
-                //navigationService.Configure("BlankPage", typeof(BlankPage));
-                //navigationService.Configure("OtherPage", typeof(OtherPage));
+                    // Ajouter nos pages ici
+                    navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
                 return navigationService;
             });
-            // Enregistrer les ViewModels ici, comme dans les exemples ci-dessous:
-            //SimpleIoc.Default.Register<BlankPageViewModel>();
-            //SimpleIoc.Default.Register<OtherPageViewModel>();
+            // Enregistrer les ViewModels ici
+            SimpleIoc.Default.Register<ProductPageViewModel>();
+
+            SimpleIoc.Default.Register<DatabaseService>(() =>
+            {
+                return new DatabaseService();
+            }, true);
         }
 
-        // Mettre nos ViewModel ici, comme dans les exemples ci-dessous:
-       /* public BlankPageViewModel BlankPageInstance
+        public ProductPageViewModel ProductPageInstance
         {
-            get { return ServiceLocator.Current.GetInstance<BlankPageViewModel>(); }
+            get { return ServiceLocator.Current.GetInstance<ProductPageViewModel>(); }
         }
-        public OtherPageViewModel MyProperty
-        {
-            get { return ServiceLocator.Current.GetInstance<OtherPageViewModel>(); }
-        }*/
     }
 }

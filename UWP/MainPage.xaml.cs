@@ -12,7 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using ClassLibraryDelta.Entities;
+using UWP.Entities;
 using System.ComponentModel;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -52,7 +52,7 @@ namespace UWP
         public MainPage()
         {
             this.InitializeComponent();
-            this.Product = new Product(10, this.NameProduct, "Dell", 16, 800, 0.2f, 0, 2.5f, "Black");
+            //this.Product = new Product(10, this.NameProduct, "Dell", 16, 800, 0, 2.5f, "Black");
             this.DataContext = this;
         }
     }

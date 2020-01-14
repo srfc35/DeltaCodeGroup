@@ -20,6 +20,7 @@ namespace ClassLibraryDelta.Entities
         private float discount;
         private float weight;
         private string color;
+        private int status; // 0: en stock, 1: demande d'achat, 2: demande d'achat rejetee, 3: vendu ...
         private Command order;
         #endregion
 
@@ -92,6 +93,13 @@ namespace ClassLibraryDelta.Entities
             set { color = value; }
         }
 
+        [Required]
+        public int Status
+        {
+            get { return status; }
+            set { status = value; }
+        }
+
         public Command Order
         {
             get { return order; }
@@ -123,7 +131,7 @@ namespace ClassLibraryDelta.Entities
                 this.discount = discount;
                 this.weight = weight;
                 this.color = color;
-
+                this.status = 0; //0 : "en stock"
             }
 
         }
