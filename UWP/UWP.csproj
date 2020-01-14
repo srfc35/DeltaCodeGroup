@@ -137,7 +137,6 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DatabaseService.cs" />
-    <Compile Include="ViewModels\ProductPageViewModel_Sauvegarde.cs" />
     <Compile Include="ViewModels\ProductPageAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\ButtonAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\ListViewAccessor.cs" />
