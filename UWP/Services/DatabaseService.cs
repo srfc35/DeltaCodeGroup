@@ -93,7 +93,6 @@ namespace UWP.Services
         public DatabaseService()
         {
             AutoResetEvent eRF = new AutoResetEvent(false);
-           // AutoResetEvent eR1 = new AutoResetEvent(false);
             Task.Factory.StartNew(async () =>
             {
                 StorageFolder localFolder = ApplicationData.Current.LocalFolder;
@@ -116,13 +115,6 @@ namespace UWP.Services
                 eRF.Set();
             });
             eRF.WaitOne();
-//            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
-//Windows.UI.Core.CoreDispatcherPriority.Normal,
-//() =>
-//{
-
-
-//});
         }
     }
 }

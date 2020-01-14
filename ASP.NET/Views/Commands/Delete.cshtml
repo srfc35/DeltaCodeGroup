@@ -1,7 +1,7 @@
 ﻿@model ClassLibraryDelta.Entities.Command
 
 @{
-    Layout = null;
+    
 }
 
 <!DOCTYPE html>
@@ -20,16 +20,17 @@
             <dt>
                 @Html.DisplayNameFor(model => model.DateCommand)
             </dt>
-    
+
             <dd>
                 @Html.DisplayFor(model => model.DateCommand)
             </dd>
-    
+
         </dl>
-    
-        @using (Html.BeginForm()) {
+
+        @using (Html.BeginForm())
+        {
             @Html.AntiForgeryToken()
-    
+
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
                 @Html.ActionLink("Back to List", "Index")

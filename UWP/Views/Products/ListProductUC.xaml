@@ -34,7 +34,7 @@
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>
-         <!--   <ListView.ContextFlyout>
+            <!--   <ListView.ContextFlyout>
                 <Flyout>
                     <StackPanel>
                         <MenuFlyoutItem Text="Supprimer" Click="MenuFlyoutDelete_Click"></MenuFlyoutItem>

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using UWP.Services;
 using Windows.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
+using UWP.ViewModels.UcAccessors;
 
 namespace UWP.ViewModels
 {
@@ -32,9 +33,7 @@ namespace UWP.ViewModels
         private void SetupDatas()
         {
             Datas = new ProductPageAccessor();
-        //    SetupProductEdit();
             SetupProductList();
-            //SetupProductShow();
         }
 
         private void SetupProductShow()
@@ -120,7 +119,6 @@ namespace UWP.ViewModels
                 Datas.ProductShow.Product.CopyFrom(tablet);
             }
         }
-
         private void TVListSelectionChanged()
         {
             TV tv = Datas.ProductList.TVListView.SelectedItem;

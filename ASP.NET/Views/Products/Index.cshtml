@@ -1,77 +1,110 @@
 ﻿@model IEnumerable<ClassLibraryDelta.Entities.Product>
 
 @{
-    Layout = null;
+    
 }
 
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 
 <html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>PRODUCT</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 </head>
-<body>
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.NameProduct)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UnitPriceHT)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Weight)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th></th>
-        </tr>
-    
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.NameProduct)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UnitPriceHT)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Weight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-            </td>
-        </tr>
-    }
-    
-    </table>
-</body>
-</html>
+
+<body>*@
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-10">
+                <p style="text-align:center ">
+                    <strong>
+                        <button type="button" class="btn btn-primary" id="oxo">
+                            @Html.ActionLink("Create New", "Create")
+                        </button>
+                    </strong>
+                </p>
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NameProduct)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Brand)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Size)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.UnitPriceHT)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.VatRate)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Weight)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Discount)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Color)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NameProduct)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Brand)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Size)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UnitPriceHT)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.VatRate)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Weight)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Discount)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Color)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+        </div>
+    </div>
+@*</body>
+</html>*@

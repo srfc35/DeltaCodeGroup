@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<ClassLibraryDelta.Entities.Command>
 
 @{
-    Layout = null;
+    
 }
 
 <!DOCTYPE html>
@@ -41,9 +41,21 @@
             @Html.DisplayFor(modelItem => item.Client.LastName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.CommandID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.CommandID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.CommandID })
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CommandID }) |
+                </button>
+            </strong>
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Details", "Details", new { id = item.CommandID }) |
+                </button>
+            </strong>
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CommandID })
+                </button>
+            </strong>
         </td>
     </tr>
     }

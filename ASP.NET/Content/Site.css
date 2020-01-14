@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+.navbar-collaps {
+    font-size:18px;
+    margin-left:20px;
+}
+
+a {
+    color: #fff;
+}
