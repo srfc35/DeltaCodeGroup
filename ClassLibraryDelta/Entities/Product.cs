@@ -10,7 +10,7 @@ namespace ClassLibraryDelta.Entities
 {
     public class Product
     {
-        #region Attribut
+        #region Attributes
         private int productID;
         private string nameProduct;
         private string brand;
@@ -20,6 +20,7 @@ namespace ClassLibraryDelta.Entities
         private float discount;
         private float weight;
         private string color;
+        private int status; // 0: en stock, 1: demande d'achat, 2: demande d'achat rejetee, 3: vendu ...
         private Command order;
         #endregion
 
@@ -33,12 +34,14 @@ namespace ClassLibraryDelta.Entities
             set { productID = value; }
         }
 
+        [StringLength(30)]
         public string NameProduct
         {
             get { return nameProduct; }
             set { nameProduct = value; }
         }
 
+        [StringLength(30)]
         [Required]
         public string Brand
         {
@@ -53,6 +56,7 @@ namespace ClassLibraryDelta.Entities
             set { size = value; }
         }
 
+        [Range(0d, double.MaxValue)]
         [Required]
         public float UnitPriceHT
         {
@@ -60,6 +64,7 @@ namespace ClassLibraryDelta.Entities
             set { unitPriceHT = value; }
         }
 
+        [Range(0d, 1d)]
         [Required]
         public float VatRate
         {
@@ -73,16 +78,26 @@ namespace ClassLibraryDelta.Entities
             set { weight = value; }
         }
 
+        [Range(0d, 1d)]
+        [Required]
         public float Discount
         {
             get { return discount; }
             set { discount = value; }
         }
 
+        [StringLength(30)]
         public string Color
         {
             get { return color; }
             set { color = value; }
+        }
+
+        [Required]
+        public int Status
+        {
+            get { return status; }
+            set { status = value; }
         }
 
         public Command Order
@@ -116,7 +131,7 @@ namespace ClassLibraryDelta.Entities
                 this.discount = discount;
                 this.weight = weight;
                 this.color = color;
-
+                this.status = 0; //0 : "en stock"
             }
 
         }

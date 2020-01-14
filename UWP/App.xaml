@@ -8,6 +8,6 @@
     <Application.Resources>
         <ResourceDictionary>
             <vm:ViewModelLocator xmlns:vm="using:UWP.ViewModels" x:Key="Locator" />
-        </ResourceDictionary>        
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
