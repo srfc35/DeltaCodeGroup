@@ -140,6 +140,7 @@
     <Compile Include="ViewModels\ComputerPageViewModel.cs" />
     <Compile Include="ViewModels\PhonePageViewModel.cs" />
     <Compile Include="ViewModels\TabletPageViewModel.cs" />
+    <Compile Include="ViewModels\TVPageViewModel.cs" />
     <Compile Include="ViewModels\UcAccessors\ButtonAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\ListViewAccessor.cs" />
     <Compile Include="Views\ProductControlBase.cs" />
@@ -156,6 +157,9 @@
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\Products\TabletPage.xaml.cs">
       <DependentUpon>TabletPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\TVPage.xaml.cs">
+      <DependentUpon>TVPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Products\TabletPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\TVPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
