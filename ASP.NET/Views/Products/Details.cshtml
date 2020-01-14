@@ -1,7 +1,7 @@
 ﻿@model ClassLibraryDelta.Entities.Product
 
 @{
-    Layout = null;
+   
 }
 
 <!DOCTYPE html>
@@ -12,71 +12,118 @@
     <title>Details</title>
 </head>
 <body>
-    <div>
-        <h4>Product</h4>
-        <hr />
-        <dl class="dl-horizontal">
-            <dt>
-                @Html.DisplayNameFor(model => model.NameProduct)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.NameProduct)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Brand)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Brand)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Size)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Size)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.UnitPriceHT)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.UnitPriceHT)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Weight)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Weight)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Discount)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Discount)
-            </dd>
-    
-            <dt>
-                @Html.DisplayNameFor(model => model.Color)
-            </dt>
-    
-            <dd>
-                @Html.DisplayFor(model => model.Color)
-            </dd>
-    
-        </dl>
-    </div>
-    <p>
-        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-        @Html.ActionLink("Back to List", "Index")
-    </p>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+           
+                <div class="col-md-10">
+
+                    <table class="table table-dark table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NameProduct)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.NameProduct)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Brand)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Brand)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Size)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Size)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UnitPriceHT)
+                                </th>
+                            </tr>
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(model => model.UnitPriceHT)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.VatRate)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.VatRate)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Weight)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Weight)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Discount)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Discount)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Color)
+                                </th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(model => model.Color)
+                                </td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <p style="text-align:center ">
+                        <strong>
+                            @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+                            @Html.ActionLink("Back to List", "Index")
+                        </strong>
+
+                    </p>
+                </div>
+
+
+                <div class="col-md-1">
+
+                </div>
+            </div>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>
 </body>
 </html>

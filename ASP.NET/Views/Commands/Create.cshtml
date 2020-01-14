@@ -1,7 +1,7 @@
 ﻿@model ClassLibraryDelta.Entities.Command
 
 @{
-    Layout = null;
+    
 }
 
 <!DOCTYPE html>
@@ -14,12 +14,12 @@
 <body>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/jqueryval")
-    
-    
-    @using (Html.BeginForm()) 
+
+
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>Command</h4>
             <hr />
@@ -31,7 +31,7 @@
                     @Html.ValidationMessageFor(model => model.DateCommand, "", new { @class = "text-danger" })
                 </div>
             </div>
-    
+
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
@@ -39,7 +39,7 @@
             </div>
         </div>
     }
-    
+
     <div>
         @Html.ActionLink("Back to List", "Index")
     </div>

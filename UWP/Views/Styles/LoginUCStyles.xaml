@@ -1,0 +1,15 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWP.Views.Styles">
+
+    <x:Int32 x:Key="FontSizeValue">20</x:Int32>
+
+    <Style x:Key="LoginUCTextblock" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeValue}"/>
+    </Style>
+
+    <Style x:Key="LoginUCButton" TargetType="Button">
+        <Setter Property="FontSize" Value="{StaticResource FontSizeValue}"/>
+    </Style>
+</ResourceDictionary>

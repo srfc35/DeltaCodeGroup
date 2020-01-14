@@ -137,7 +137,18 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="ViewModels\UcAccessors\ProductPageAccesors.cs" />
+    <Compile Include="ViewModels\UcAccessors\Products\ListComputers.cs" />
+    <Compile Include="Views\Authentication.xaml.cs">
+      <DependentUpon>Authentication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BasePageLoginUC.xaml.cs">
+      <DependentUpon>BasePageLoginUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductControlBase.cs" />
+    <Compile Include="Views\Products\ListProductUC.xaml.cs">
+      <DependentUpon>ListProductUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Products\ShowProductAdvancedUC.xaml.cs">
       <DependentUpon>ShowProductAdvancedUC.xaml</DependentUpon>
     </Compile>
@@ -156,6 +167,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\delta.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -182,6 +194,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Authentication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BasePageLoginUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\ListProductUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Products\ShowProductAdvancedUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -195,6 +219,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ViewModels\ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Styles\LoginUCStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
