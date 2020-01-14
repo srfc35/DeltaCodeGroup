@@ -18,7 +18,8 @@ namespace UWP.ViewModels
         {
             ProductPage,
             ComputerPage,
-            PhonePage
+            PhonePage,
+            TabletPage
         }
 
         /// <summary>
@@ -34,12 +35,14 @@ namespace UWP.ViewModels
                 navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
                 navigationService.Configure(Pages.ComputerPage.ToString(), typeof(ComputerPage));
                 navigationService.Configure(Pages.PhonePage.ToString(), typeof(PhonePage));
+                navigationService.Configure(Pages.TabletPage.ToString(), typeof(TabletPage));
                 return navigationService;
             });
 
             SimpleIoc.Default.Register<ProductPageViewModel>();
             SimpleIoc.Default.Register<ComputerPageViewModel>();
             SimpleIoc.Default.Register<PhonePageViewModel>();
+            SimpleIoc.Default.Register<TabletPageViewModel>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -60,6 +63,11 @@ namespace UWP.ViewModels
         public PhonePageViewModel PhonePageInstance
         {
             get { return ServiceLocator.Current.GetInstance<PhonePageViewModel>(); }
+        }
+
+        public TabletPageViewModel TabletPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<TabletPageViewModel>(); }
         }
     }
 }
