@@ -28,7 +28,7 @@
                         <TextBlock Width="100" FontWeight="Bold" Text="UnitPrice"/>
                         <TextBlock Width="100" FontWeight="Bold" Text="Weight"/>
                         <TextBlock Width="100" FontWeight="Bold" Text="Color"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="RAM"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="RamMemory"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -48,7 +48,7 @@
                         <TextBlock Width="100" Text="{Binding UnitPriceHT}"/>
                         <TextBlock Width="100" Text="{Binding Weight}"/>
                         <TextBlock Width="100" Text="{Binding Color}"/>
-                        <TextBlock Width="100" Text="{Binding RAM}"/>
+                        <TextBlock Width="100" Text="{Binding RamMemory}"/>
                         <Button x:Name="btnValider" Content="Ajouter au panier"/>
                     </StackPanel>
                 </DataTemplate>
