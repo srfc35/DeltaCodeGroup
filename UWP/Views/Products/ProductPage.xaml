@@ -31,7 +31,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
-        <!-- <productUc:ListProductUC DataContext="{Binding Datas.ProductList.Computers, Mode=TwoWay}"/> -->
         <Button x:Name="btn_TV" Content="TV" Command="{Binding Btn_TV_Click}" Grid.Row="3" Grid.Column="1"></Button>
         <Button x:Name="btn_Tablet" Content="TABLET" Command="{Binding Btn_Tablet_Click}" Grid.Row="3" Grid.Column="3"></Button>
         <Button x:Name="btn_Phone" Content="PHONE" Command="{Binding Btn_Phone_Click}" Grid.Row="3" Grid.Column="5"></Button>

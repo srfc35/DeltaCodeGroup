@@ -1,4 +1,5 @@
-﻿using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using UWP.Services;
 
 namespace UWP.ViewModels
 {
-    public class ComputerPageViewModel
+    public class ComputerPageViewModel : ViewModelBase
     {
         private INavigationService navigationService;
         private DatabaseService databaseService;

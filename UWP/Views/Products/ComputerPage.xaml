@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    DataContext="{Binding Computers, Mode=TwoWay}"
+    DataContext="{Binding ComputerPageInstance, Source={StaticResource Locator}}"
     >
 
     <Grid x:Name="mainGrid">
