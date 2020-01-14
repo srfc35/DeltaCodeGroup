@@ -10,7 +10,7 @@
     DataContext="{Binding ComputerPageInstance, Source={StaticResource Locator}}"
     >
 
-    <Grid x:Name="mainGrid">
+    <Grid x:Name="mainGridComputers">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <ScrollViewer>
-        <ListView x:Name="listView" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Computers}">
+        <ListView x:Name="listViewComputers" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Computers}">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -28,6 +28,7 @@
                         <TextBlock Width="100" FontWeight="Bold" Text="UnitPrice"/>
                         <TextBlock Width="100" FontWeight="Bold" Text="Weight"/>
                         <TextBlock Width="100" FontWeight="Bold" Text="Color"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="RAM"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -47,6 +48,7 @@
                         <TextBlock Width="100" Text="{Binding UnitPriceHT}"/>
                         <TextBlock Width="100" Text="{Binding Weight}"/>
                         <TextBlock Width="100" Text="{Binding Color}"/>
+                        <TextBlock Width="100" Text="{Binding RAM}"/>
                         <Button x:Name="btnValider" Content="Ajouter au panier"/>
                     </StackPanel>
                 </DataTemplate>
