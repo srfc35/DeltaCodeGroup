@@ -17,7 +17,8 @@ namespace UWP.ViewModels
         public enum Pages
         {
             ProductPage,
-            ComputerPage
+            ComputerPage,
+            PhonePage
         }
 
         /// <summary>
@@ -32,11 +33,13 @@ namespace UWP.ViewModels
                 var navigationService = new NavigationService();
                 navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
                 navigationService.Configure(Pages.ComputerPage.ToString(), typeof(ComputerPage));
+                navigationService.Configure(Pages.PhonePage.ToString(), typeof(PhonePage));
                 return navigationService;
             });
 
             SimpleIoc.Default.Register<ProductPageViewModel>();
             SimpleIoc.Default.Register<ComputerPageViewModel>();
+            SimpleIoc.Default.Register<PhonePageViewModel>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -52,6 +55,11 @@ namespace UWP.ViewModels
         public ComputerPageViewModel ComputerPageInstance
         {
             get { return ServiceLocator.Current.GetInstance<ComputerPageViewModel>(); }
+        }
+
+        public PhonePageViewModel PhonePageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<PhonePageViewModel>(); }
         }
     }
 }
