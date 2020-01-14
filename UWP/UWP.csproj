@@ -137,6 +137,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DatabaseService.cs" />
+    <Compile Include="ViewModels\AuthentificationPageViewModel.cs" />
     <Compile Include="ViewModels\ProductPageViewModel_Sauvegarde.cs" />
     <Compile Include="ViewModels\ProductPageAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\ButtonAccessor.cs" />
@@ -145,6 +146,9 @@
     <Compile Include="ViewModels\UcAccessors\Products\ProductEditAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\Products\ProductListAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\Products\ProductShowAccessor.cs" />
+    <Compile Include="Views\Authentification\AuthentificationPage.xaml.cs">
+      <DependentUpon>AuthentificationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductControlBase.cs" />
     <Compile Include="Views\Products\ListProductUC.xaml.cs">
       <DependentUpon>ListProductUC.xaml</DependentUpon>
@@ -155,7 +159,7 @@
     <Compile Include="Views\Products\ShowProductUC.xaml.cs">
       <DependentUpon>ShowProductUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ProductPage.xaml.cs">
+    <Compile Include="Views\Products\ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
@@ -193,6 +197,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Authentification\AuthentificationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Products\ListProductUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -209,7 +217,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ViewModels\ProductPage.xaml">
+    <Page Include="Views\Products\ProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

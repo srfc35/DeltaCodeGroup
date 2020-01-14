@@ -15,8 +15,7 @@ namespace UWP.ViewModels
     {
         public enum Pages
         {
-            ProductPage//,
-                       //Autres pages
+            ProductPage
         }
 
         /// <summary>
@@ -29,11 +28,10 @@ namespace UWP.ViewModels
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                    // Ajouter nos pages ici
-                    navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
+                navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
                 return navigationService;
             });
-            // Enregistrer les ViewModels ici
+
             SimpleIoc.Default.Register<ProductPageViewModel>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
