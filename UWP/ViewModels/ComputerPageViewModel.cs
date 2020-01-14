@@ -31,11 +31,9 @@ namespace UWP.ViewModels
         private void SetupComputerList()
         {
             this.Computers = new ObservableCollection<Computer>();
-            Debug.WriteLine("Computers");
             foreach (var item in databaseService.Computers)
             {
                 Computers.Add(item);
-                Debug.WriteLine(item);
             }
 
             /*

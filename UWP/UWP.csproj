@@ -167,6 +167,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\Computer.jpg" />
+    <Content Include="Assets\Images\Phone.jpg" />
+    <Content Include="Assets\Images\Tablet.jpg" />
+    <Content Include="Assets\Images\TV.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

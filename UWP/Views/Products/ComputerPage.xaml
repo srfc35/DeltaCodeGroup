@@ -17,16 +17,17 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <ScrollViewer>
         <ListView x:Name="listView" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Computers}">
             <ListView.HeaderTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="Name"/>
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="Brand"/>
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="Size"/>
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="UnitPrice"/>
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="Weight"/>
-                        <TextBlock MinWidth="200" FontWeight="Bold" Text="Color"/>
+                        <TextBlock Width="200" FontWeight="Bold" Text="Name"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="Brand"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="Size"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="UnitPrice"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="Weight"/>
+                        <TextBlock Width="100" FontWeight="Bold" Text="Color"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.HeaderTemplate>
@@ -40,16 +41,17 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock MinWidth="200" Text="{Binding NameProduct}"/>
-                        <TextBlock MinWidth="200" Text="{Binding Brand}"/>
-                        <TextBlock MinWidth="200" Text="{Binding Size}"/>
-                        <TextBlock MinWidth="200" Text="{Binding UnitPriceHT}"/>
-                        <TextBlock MinWidth="200" Text="{Binding Weight}"/>
-                        <TextBlock MinWidth="200" Text="{Binding Color}"/>
-                        <Button x:Name="btnValider" Content="Modifier"/>
+                        <TextBlock Width="200" Text="{Binding NameProduct}"/>
+                        <TextBlock Width="100" Text="{Binding Brand}"/>
+                        <TextBlock Width="100" Text="{Binding Size}"/>
+                        <TextBlock Width="100" Text="{Binding UnitPriceHT}"/>
+                        <TextBlock Width="100" Text="{Binding Weight}"/>
+                        <TextBlock Width="100" Text="{Binding Color}"/>
+                        <Button x:Name="btnValider" Content="Ajouter au panier"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </ScrollViewer>
     </Grid>
 </Page>
