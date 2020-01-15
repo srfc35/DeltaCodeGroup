@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UWP.Services;
+using UWP.Views.Products;
 
 namespace UWP.ViewModels
 {
@@ -15,8 +16,8 @@ namespace UWP.ViewModels
     {
         public enum Pages
         {
-            ProductPage//,
-                       //Autres pages
+            ProductPage,
+            ComputerPage
         }
 
         /// <summary>
@@ -29,12 +30,13 @@ namespace UWP.ViewModels
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                    // Ajouter nos pages ici
-                    navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
+                navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
+                navigationService.Configure(Pages.ComputerPage.ToString(), typeof(ComputerPage));
                 return navigationService;
             });
-            // Enregistrer les ViewModels ici
+
             SimpleIoc.Default.Register<ProductPageViewModel>();
+            SimpleIoc.Default.Register<ComputerPageViewModel>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -45,6 +47,11 @@ namespace UWP.ViewModels
         public ProductPageViewModel ProductPageInstance
         {
             get { return ServiceLocator.Current.GetInstance<ProductPageViewModel>(); }
+        }
+
+        public ComputerPageViewModel ComputerPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<ComputerPageViewModel>(); }
         }
     }
 }
