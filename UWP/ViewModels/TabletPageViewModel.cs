@@ -4,6 +4,7 @@ using GalaSoft.MvvmLight.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -11,17 +12,38 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using UWP.Entities;
 using UWP.Services;
+using Windows.UI.Xaml.Navigation;
 
 namespace UWP.ViewModels
 {
-    public class TabletPageViewModel
+    public class TabletPageViewModel : ViewModelBase, INavigationEvent, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+    protected void OnPropertyChanged(string name)
+    {
+        PropertyChangedEventHandler handler = PropertyChanged;
+        if (handler != null)
+        {
+            handler(this, new PropertyChangedEventArgs(name));
+        }
+    }
         private INavigationService navigationService;
         private DatabaseService databaseService;
 
-        public float Amount { get; set; }
+    private float amount;
 
-        public ObservableCollection<Tablet> Tablets { get; set; }
+    public float Amount
+    {
+        get { return amount; }
+        set
+        {
+            amount = value;
+            OnPropertyChanged("Amount");
+        }
+    }
+
+    public ObservableCollection<Tablet> Tablets { get; set; }
 
         public TabletPageViewModel(INavigationService navigationService, DatabaseService databaseService)
         {
@@ -48,5 +70,33 @@ namespace UWP.ViewModels
         {
             this.navigationService.GoBack();
         });
+
+    public ICommand Add_To_Cart_Click => new RelayCommand<float>((float UnitPriceHT) =>
+    {
+        this.UpdateAmount(UnitPriceHT);
+    });
+
+    public void UpdateAmount(float productPrice)
+    {
+        this.Amount += productPrice;
     }
+
+    public void OnNavigatedTo(NavigationEventArgs e)
+    {
+
+        if (this.Amount.Equals(null))
+        {
+            this.Amount = 0;
+        }
+        else
+        {
+            this.Amount = (float)e.Parameter;
+        }
+    }
+
+    public void OnNavigatedFrom(NavigationEventArgs e)
+    {
+
+    }
+}
 }
