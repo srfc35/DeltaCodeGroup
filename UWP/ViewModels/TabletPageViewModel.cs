@@ -41,5 +41,10 @@ namespace UWP.ViewModels
             Datas.RoleList.ListView.SelectionChanged = new RelayCommand(RoleListSelectionChanged);
             */
         }
+
+        public ICommand Go_Back_Click => new RelayCommand(() =>
+        {
+            this.navigationService.GoBack();
+        });
     }
 }

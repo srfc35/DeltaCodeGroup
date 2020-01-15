@@ -55,5 +55,7 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
+
+        <Button Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{Binding Go_Back_Click}" />
     </Grid>
 </Page>
