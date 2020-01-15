@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using UWP.Services;
+using UWP.Views.Products;
 
 namespace UWP.ViewModels
 {
@@ -15,8 +16,11 @@ namespace UWP.ViewModels
     {
         public enum Pages
         {
-            ProductPage//,
-                       //Autres pages
+            ProductPage,
+            ComputerPage,
+            PhonePage,
+            TabletPage,
+            TVPage
         }
 
         /// <summary>
@@ -29,12 +33,19 @@ namespace UWP.ViewModels
             SimpleIoc.Default.Register<INavigationService>(() =>
             {
                 var navigationService = new NavigationService();
-                    // Ajouter nos pages ici
-                    navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
+                navigationService.Configure(Pages.ProductPage.ToString(), typeof(ProductPage));
+                navigationService.Configure(Pages.ComputerPage.ToString(), typeof(ComputerPage));
+                navigationService.Configure(Pages.PhonePage.ToString(), typeof(PhonePage));
+                navigationService.Configure(Pages.TabletPage.ToString(), typeof(TabletPage));
+                navigationService.Configure(Pages.TVPage.ToString(), typeof(TVPage));
                 return navigationService;
             });
-            // Enregistrer les ViewModels ici
+
             SimpleIoc.Default.Register<ProductPageViewModel>();
+            SimpleIoc.Default.Register<ComputerPageViewModel>();
+            SimpleIoc.Default.Register<PhonePageViewModel>();
+            SimpleIoc.Default.Register<TabletPageViewModel>();
+            SimpleIoc.Default.Register<TVPageViewModel>();
 
             SimpleIoc.Default.Register<DatabaseService>(() =>
             {
@@ -45,6 +56,26 @@ namespace UWP.ViewModels
         public ProductPageViewModel ProductPageInstance
         {
             get { return ServiceLocator.Current.GetInstance<ProductPageViewModel>(); }
+        }
+
+        public ComputerPageViewModel ComputerPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<ComputerPageViewModel>(); }
+        }
+
+        public PhonePageViewModel PhonePageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<PhonePageViewModel>(); }
+        }
+
+        public TabletPageViewModel TabletPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<TabletPageViewModel>(); }
+        }
+
+        public TVPageViewModel TVPageInstance
+        {
+            get { return ServiceLocator.Current.GetInstance<TVPageViewModel>(); }
         }
     }
 }

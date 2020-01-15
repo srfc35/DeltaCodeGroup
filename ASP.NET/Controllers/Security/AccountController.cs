@@ -56,6 +56,13 @@ namespace DeltaCode.Controllers
             }
         }
 
+        [Authorize]
+        [HttpGet]
+        public Boolean TestAuthConnected()
+        {
+            return true;
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
