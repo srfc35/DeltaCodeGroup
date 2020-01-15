@@ -20,10 +20,16 @@ namespace UWP.ViewModels
         private INavigationService navigationService;
         private DatabaseService databaseService;
 
+        public float Amount { get; set; }
+
         public ProductPageViewModel(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
             this.databaseService = databaseService;
+            if (Amount.Equals(null))
+            {
+                Amount = 0;
+            }
         }
 
         public ICommand Btn_Computer_Click => new RelayCommand(() =>

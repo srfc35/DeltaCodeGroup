@@ -32,13 +32,6 @@
                         </StackPanel>
                     </DataTemplate>
                 </ListView.HeaderTemplate>
-                <ListView.ContextFlyout>
-                    <Flyout>
-                        <StackPanel>
-                            <MenuFlyoutItem Text="Supprimer"></MenuFlyoutItem>
-                        </StackPanel>
-                    </Flyout>
-                </ListView.ContextFlyout>
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -49,7 +42,7 @@
                             <TextBlock Width="100" Text="{Binding Weight}"/>
                             <TextBlock Width="100" Text="{Binding Color}"/>
                             <TextBlock Width="100" Text="{Binding OS}"/>
-                            <Button x:Name="btnValider" Content="Ajouter au panier"/>
+                            <Button x:Name="btnValider" Content="Add to cart"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>

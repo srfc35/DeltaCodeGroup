@@ -19,27 +19,20 @@
         </Grid.RowDefinitions>
         <ScrollViewer>
         <ListView x:Name="listViewComputers" Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Computers}">
-            <ListView.HeaderTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Width="200" FontWeight="Bold" Text="Name"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="Brand"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="Size"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="UnitPrice"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="Weight"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="Color"/>
-                        <TextBlock Width="100" FontWeight="Bold" Text="RamMemory"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.HeaderTemplate>
-            <ListView.ContextFlyout>
-                <Flyout>
-                    <StackPanel>
-                        <MenuFlyoutItem Text="Supprimer"></MenuFlyoutItem>
-                    </StackPanel>
-                </Flyout>
-            </ListView.ContextFlyout>
-            <ListView.ItemTemplate>
+                <ListView.HeaderTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Width="200" FontWeight="Bold" Text="Name"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="Brand"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="Size"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="UnitPrice"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="Weight"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="Color"/>
+                            <TextBlock Width="100" FontWeight="Bold" Text="RamMemory"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Width="200" Text="{Binding NameProduct}"/>
@@ -49,7 +42,7 @@
                         <TextBlock Width="100" Text="{Binding Weight}"/>
                         <TextBlock Width="100" Text="{Binding Color}"/>
                         <TextBlock Width="100" Text="{Binding RamMemory}"/>
-                        <Button x:Name="btnValider" Content="Ajouter au panier"/>
+                            <Button x:Name="btnValider" Content="Add to cart"/>
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
