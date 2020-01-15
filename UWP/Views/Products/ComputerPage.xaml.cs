@@ -35,14 +35,6 @@ namespace UWP.Views.Products
         {
             base.OnNavigatedTo(e);
             (this.DataContext as INavigationEvent).OnNavigatedTo(e);
-            if (ViewModel.Amount.Equals(null))
-            {
-                ViewModel.Amount = 0;
-            }
-            else
-            {
-                ViewModel.Amount = (float)e.Parameter;
-            }
         }
 
         void INavigationEvent.OnNavigatedFrom(NavigationEventArgs e)
