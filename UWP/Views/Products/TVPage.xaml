@@ -24,12 +24,12 @@
         <StackPanel Grid.Row="0" Grid.Column="1" >
             <TextBlock Text="Panier : " FontWeight="Bold" ></TextBlock>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Amount}" FontWeight="Bold" ></TextBlock>
+                <TextBlock Text="{Binding Amount, Mode=TwoWay}" FontWeight="Bold" ></TextBlock>
                 <TextBlock Text=" euros" FontWeight="Bold" ></TextBlock>
             </StackPanel>
         </StackPanel>
         <ScrollViewer Grid.Column="0" Grid.Row="0" >
-            <ListView x:Name="listViewTablets" ItemsSource="{Binding TVs}">
+            <ListView x:Name="listViewTVs" ItemsSource="{Binding TVs}">
                 <ListView.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
@@ -53,7 +53,7 @@
                             <TextBlock Width="100" Text="{Binding Weight}"/>
                             <TextBlock Width="100" Text="{Binding Color}"/>
                             <TextBlock Width="100" Text="{Binding Resolution}"/>
-                            <Button x:Name="btnValider" Content="Add to cart"/>
+                            <Button Content="Add to cart" Command="{Binding ElementName=listViewTVs, Path=DataContext.Add_To_Cart_Click}" CommandParameter="{Binding UnitPriceHT}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListView.ItemTemplate>
