@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ClassLibraryDelta.Entities.Product>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <strong>
+            <button type="button" class="btn btn-info" id="oxo">
+                @Html.ActionLink("Create New", "Create")
+                </button>
+            </strong>
+</p>
+    <table class="tablePurchase">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NameProduct)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Size)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPriceHT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Weight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Color)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NameProduct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UnitPriceHT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VatRate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Weight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Color)
+                </td>
+                <td>
+                    <strong>
+                        <button type="button" class="btn btn-info" id="oxo">
+                            @Html.ActionLink("Validate", "Validate", new { id = item.ProductID }) 
+                            </button>
+                        </strong>
+                    <strong>
+                            <button type="button" class="btn btn-info" id="oxo">
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) 
+                                </button>
+                        </strong>
+                    <strong>
+                        <button type="button" class="btn btn-info" id="oxo">
+
+                            @Html.ActionLink("Details", "Details", new { id = item.ProductID }) 
+                            </button>
+                        </strong>
+                    <strong>
+                        <button type="button" class="btn btn-info" id="oxo">
+
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                            </button>
+                        </strong>
+</td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

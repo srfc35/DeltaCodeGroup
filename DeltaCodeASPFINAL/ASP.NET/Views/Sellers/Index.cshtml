@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ClassLibraryDelta.Entities.Seller>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        <strong>
+            <button type="button" class="btn btn-dark" id="oxo">
+                @Html.ActionLink("Create New", "Create")
+                </button>
+            </strong>
+</p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SellerAccount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SellerAccount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    <strong>
+                        <button type="button" class="btn btn-primary" id="oxo">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                        </button>
+                    </strong>
+                    <strong>
+                        <button type="button" class="btn btn-primary" id="oxo">
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                        </button>
+                    </strong>
+                    <strong>
+                        <button type="button" class="btn btn-primary" id="oxo">
+                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                            </button>
+                        </strong>
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

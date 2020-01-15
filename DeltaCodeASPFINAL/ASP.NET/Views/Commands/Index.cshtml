@@ -1,0 +1,65 @@
+﻿@model IEnumerable<ClassLibraryDelta.Entities.Command>
+
+@{
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateCommand)
+            </th>
+            <th>
+                Seller
+            </th>
+            <th>
+                Client
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateCommand)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Seller.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Client.LastName)
+        </td>
+        <td>
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CommandID }) 
+                </button>
+            </strong>
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Details", "Details", new { id = item.CommandID }) 
+                </button>
+            </strong>
+            <strong>
+                <button type="button" class="btn btn-primary" id="oxo">
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CommandID })
+                </button>
+            </strong>
+        </td>
+    </tr>
+    }
+    
+    </table>
+</body>
+</html>
