@@ -12,6 +12,7 @@ using System.Windows.Input;
 using UWP.Services;
 using Windows.UI.Xaml.Controls;
 using System.Collections.ObjectModel;
+using Windows.UI.Xaml.Navigation;
 
 namespace UWP.ViewModels
 {
@@ -19,17 +20,12 @@ namespace UWP.ViewModels
     {
         private INavigationService navigationService;
         private DatabaseService databaseService;
-
         public float Amount { get; set; }
 
         public ProductPageViewModel(INavigationService navigationService, DatabaseService databaseService)
         {
             this.navigationService = navigationService;
-            this.databaseService = databaseService;
-            if (Amount.Equals(null))
-            {
-                Amount = 0;
-            }
+            this.databaseService = databaseService;            
         }
 
         public ICommand Btn_Computer_Click => new RelayCommand(() =>
@@ -51,6 +47,6 @@ namespace UWP.ViewModels
         {
             this.navigationService.NavigateTo("TVPage");
         });
-
+        
     }
 }

@@ -20,11 +20,33 @@ namespace UWP.ViewModels
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class ProductPage : Page
+    public sealed partial class ProductPage : Page, INavigationEvent
     {
+
+        public ProductPageViewModel ViewModel { get; set; }
+
         public ProductPage()
         {
             this.InitializeComponent();
+        }
+
+        void INavigationEvent.OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            (this.DataContext as INavigationEvent).OnNavigatedTo(e);
+            if (ViewModel.Amount.Equals(null))
+            {
+                ViewModel.Amount = 0;
+            }
+            else
+            {
+                ViewModel.Amount = (float)e.Parameter;
+            }
+        }
+
+        void INavigationEvent.OnNavigatedFrom(NavigationEventArgs e)
+        {
+            
         }
     }
 }

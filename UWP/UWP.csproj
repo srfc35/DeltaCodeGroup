@@ -128,6 +128,7 @@
     <Compile Include="Entities\Seller.cs" />
     <Compile Include="Entities\Tablet.cs" />
     <Compile Include="Entities\TV.cs" />
+    <Compile Include="INavigationEvent.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

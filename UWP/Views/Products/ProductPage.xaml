@@ -12,7 +12,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="100" />
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="50"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="100"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"/>
@@ -30,6 +30,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="100"/>
         </Grid.RowDefinitions>
+        <StackPanel Grid.Row="1" Grid.Column="8" >
+            <TextBlock Text="Panier : " FontWeight="Bold" ></TextBlock>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Amount}" FontWeight="Bold" ></TextBlock>
+                <TextBlock Text=" euros" FontWeight="Bold" ></TextBlock>
+            </StackPanel>
+        </StackPanel>
         <Button x:Name="btn_image_TV" Command="{Binding Btn_TV_Click}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center">
             <Image Source="ms-appx:///Assets/Images/TV.jpg" Grid.Row="2" Grid.Column="1"/>
         </Button>
