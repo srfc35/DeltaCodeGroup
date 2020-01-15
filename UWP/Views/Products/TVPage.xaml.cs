@@ -21,13 +21,32 @@ namespace UWP.Views.Products
     /// <summary>
     /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
     /// </summary>
-    public sealed partial class TVPage : Page
+    public sealed partial class TVPage : Page, INavigationEvent
     {
         public TVPageViewModel ViewModel { get; set; }
 
         public TVPage()
         {
             this.InitializeComponent();
+        }
+
+        void INavigationEvent.OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            (this.DataContext as INavigationEvent).OnNavigatedTo(e);
+            if (ViewModel.Amount.Equals(null))
+            {
+                ViewModel.Amount = 0;
+            }
+            else
+            {
+                ViewModel.Amount = (float)e.Parameter;
+            }
+        }
+
+        void INavigationEvent.OnNavigatedFrom(NavigationEventArgs e)
+        {
+
         }
     }
 }

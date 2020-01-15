@@ -19,6 +19,8 @@ namespace UWP.ViewModels
         private INavigationService navigationService;
         private DatabaseService databaseService;
 
+        public float Amount { get; set; }
+
         public ObservableCollection<TV> TVs { get; set; }
 
         public TVPageViewModel(INavigationService navigationService, DatabaseService databaseService)
