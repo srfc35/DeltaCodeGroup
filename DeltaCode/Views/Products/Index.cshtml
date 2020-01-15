@@ -1,0 +1,123 @@
+﻿@model IEnumerable<ClassLibraryDelta.Entities.Product>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html lang="fr">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+
+
+<body style="padding:0px">
+    <div class="contain-fluid">
+        <div class="contain-fluid" style="background-color:#558c2f;height:100px;width:auto">
+            <div class="row">
+                <div class="col-md-12">
+                    <img src="~/Utils/PictureUtils/delta.png" style="width:90px 150px;text-align:left;margin-left: -7px;padding-top: 5px" />
+                    <h2 style="text-align:center;color:white">PRODUCT</h2> 
+                </div>
+                
+                    </div>
+                </div>
+
+            </div>
+        
+
+        <div class="container">
+            <p style="text-align:center ">
+                @Html.ActionLink("Create New", "Create")
+            </p>
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.NameProduct)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Brand)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Size)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.UnitPriceHT)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.VatRate)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Weight)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Discount)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Color)
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.NameProduct)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Brand)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Size)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.UnitPriceHT)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.VatRate)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Weight)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Discount)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Color)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.ProductID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.ProductID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.ProductID })
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="footing">
+    <footer style="background-color: #555c2f;height:100px;width:100%">
+
+        <div class="row">
+            <div class="col-md-6" style="text-align:right">
+                <p><strong>&copy; @DateTime.Now.Year</strong></p>
+
+            </div>
+        </div>
+    </footer>
+        </div>
+</body>
+</html>
