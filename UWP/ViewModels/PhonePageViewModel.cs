@@ -19,6 +19,8 @@ namespace UWP.ViewModels
         private INavigationService navigationService;
         private DatabaseService databaseService;
 
+        public float Amount { get; set; }
+
         public ObservableCollection<Phone> Phones { get; set; }
 
         public PhonePageViewModel(INavigationService navigationService, DatabaseService databaseService)

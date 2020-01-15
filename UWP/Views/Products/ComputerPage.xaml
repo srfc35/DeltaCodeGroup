@@ -28,7 +28,6 @@
                 <TextBlock Text=" euros" FontWeight="Bold" ></TextBlock>
             </StackPanel>
         </StackPanel>
-        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{Binding Go_Back_Click}" />
         <ScrollViewer Grid.Column="0" Grid.Row="0" >
         <ListView x:Name="listViewComputers" ItemsSource="{Binding Computers}">
                 <ListView.HeaderTemplate>
@@ -60,5 +59,6 @@
             </ListView.ItemTemplate>
         </ListView>
         </ScrollViewer>
+        <Button Grid.Row="2" Grid.Column="0" Style="{StaticResource NavigationBackButtonNormalStyle}" Command="{Binding Go_Back_Click}" />
     </Grid>
 </Page>
