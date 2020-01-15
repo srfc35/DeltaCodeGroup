@@ -12,7 +12,7 @@
     <DefaultLanguage>fr-FR</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -128,6 +128,7 @@
     <Compile Include="Entities\Seller.cs" />
     <Compile Include="Entities\Tablet.cs" />
     <Compile Include="Entities\TV.cs" />
+    <Compile Include="INavigationEvent.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -137,29 +138,30 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\DatabaseService.cs" />
-    <Compile Include="ViewModels\ProductPageViewModel_Sauvegarde.cs" />
-    <Compile Include="ViewModels\ProductPageAccessor.cs" />
+    <Compile Include="ViewModels\ComputerPageViewModel.cs" />
+    <Compile Include="ViewModels\PhonePageViewModel.cs" />
+    <Compile Include="ViewModels\TabletPageViewModel.cs" />
+    <Compile Include="ViewModels\TVPageViewModel.cs" />
     <Compile Include="ViewModels\UcAccessors\ButtonAccessor.cs" />
     <Compile Include="ViewModels\UcAccessors\ListViewAccessor.cs" />
-    <Compile Include="ViewModels\UcAccessors\Products\ListComputers.cs" />
-    <Compile Include="ViewModels\UcAccessors\Products\ProductEditAccessor.cs" />
-    <Compile Include="ViewModels\UcAccessors\Products\ProductListAccessor.cs" />
-    <Compile Include="ViewModels\UcAccessors\Products\ProductShowAccessor.cs" />
     <Compile Include="Views\ProductControlBase.cs" />
-    <Compile Include="Views\Products\ListProductUC.xaml.cs">
-      <DependentUpon>ListProductUC.xaml</DependentUpon>
+    <Compile Include="Views\Products\ComputerPage.xaml.cs">
+      <DependentUpon>ComputerPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Products\ShowProductAdvancedUC.xaml.cs">
-      <DependentUpon>ShowProductAdvancedUC.xaml</DependentUpon>
+    <Compile Include="Views\Products\PhonePage.xaml.cs">
+      <DependentUpon>PhonePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Products\ShowProductUC.xaml.cs">
-      <DependentUpon>ShowProductUC.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModels\ProductPage.xaml.cs">
+    <Compile Include="Views\Products\ProductPage.xaml.cs">
       <DependentUpon>ProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ProductPageViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="Views\Products\TabletPage.xaml.cs">
+      <DependentUpon>TabletPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Products\TVPage.xaml.cs">
+      <DependentUpon>TVPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -167,6 +169,10 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Images\Computer.jpg" />
+    <Content Include="Assets\Images\Phone.jpg" />
+    <Content Include="Assets\Images\Tablet.jpg" />
+    <Content Include="Assets\Images\TV.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -181,10 +187,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Dictionary1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -193,15 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Products\ListProductUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Products\ShowProductAdvancedUC.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\Products\ShowProductUC.xaml">
+    <Page Include="Views\Products\ComputerPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -209,7 +203,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="ViewModels\ProductPage.xaml">
+    <Page Include="Views\Products\PhonePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\ProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\TabletPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Products\TVPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

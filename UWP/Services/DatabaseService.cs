@@ -93,19 +93,17 @@ namespace UWP.Services
         public DatabaseService()
         {
             AutoResetEvent eRF = new AutoResetEvent(false);
-           // AutoResetEvent eR1 = new AutoResetEvent(false);
             Task.Factory.StartNew(async () =>
             {
                 StorageFolder localFolder = ApplicationData.Current.LocalFolder;
                 StorageFile myDb = await localFolder.CreateFileAsync("mydb.sqlite",
                         CreationCollisionOption.OpenIfExists);
-                this.sqliteConnection = new SQLiteConnection(myDb.Path);
+                this.sqliteConnection = new SQLiteConnection(myDb.Path, SQLiteOpenFlags.ReadWrite);
+                Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
                 while (this.sqliteConnection == null)
                 {
-
+                    Task.Delay(TimeSpan.FromMilliseconds(50)).Wait();
                 }
-            }).ContinueWith((s)=>
-            {
                 this.sqliteConnection.CreateTable<Client>();
                 this.sqliteConnection.CreateTable<Seller>();
                 this.sqliteConnection.CreateTable<Command>();
@@ -114,8 +112,8 @@ namespace UWP.Services
                 this.sqliteConnection.CreateTable<Tablet>();
                 this.sqliteConnection.CreateTable<TV>();
                 eRF.Set();
-            });
-            eRF.WaitOne();
+             });
+             eRF.WaitOne();
 //            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(
 //Windows.UI.Core.CoreDispatcherPriority.Normal,
 //() =>
