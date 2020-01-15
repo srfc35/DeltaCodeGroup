@@ -19,6 +19,8 @@ namespace UWP.ViewModels
         private INavigationService navigationService;
         private DatabaseService databaseService;
 
+        public float Amount { get; set; }
+
         public ObservableCollection<Tablet> Tablets { get; set; }
 
         public TabletPageViewModel(INavigationService navigationService, DatabaseService databaseService)
